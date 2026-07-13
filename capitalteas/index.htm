@@ -1,0 +1,725 @@
+<title>Capital Teas — QA Re-Verification &amp; Effort Estimate</title>
+<style>
+  :root {
+    --paper: #efeee6;
+    --paper-raised: #f8f7f1;
+    --paper-line: #dcdac9;
+    --ink: #1a2420;
+    --ink-muted: #5b655c;
+    --ink-faint: #8a9088;
+    --accent: #2f5d4b;
+    --accent-soft: #e1e9e1;
+    --accent-ink: #17362a;
+
+    --sev-blocker: #a63324;
+    --sev-blocker-soft: #f3e1dd;
+    --sev-high: #b05e1f;
+    --sev-high-soft: #f4e6d7;
+    --sev-medium: #93731f;
+    --sev-medium-soft: #efe7d3;
+    --sev-low: #6c766c;
+    --sev-low-soft: #e6e6e0;
+
+    --status-fixed: #2f7d5c;
+    --status-fixed-soft: #dfeee6;
+    --status-open: #a63324;
+    --status-open-soft: #f3e1dd;
+    --status-partial: #93731f;
+    --status-partial-soft: #efe7d3;
+    --status-unverified: #4c6478;
+    --status-unverified-soft: #dfe6ea;
+
+    --shadow: 0 1px 2px rgba(26,36,32,0.06), 0 6px 20px rgba(26,36,32,0.05);
+    --font-display: ui-serif, Charter, "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-sans-serif, Helvetica, Arial, sans-serif;
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #141a17;
+    --paper-raised: #1b2320;
+    --paper-line: #303a34;
+    --ink: #eceee7;
+    --ink-muted: #a9b3a9;
+    --ink-faint: #76817a;
+    --accent: #6fb394;
+    --accent-soft: #203029;
+    --accent-ink: #bfe3d1;
+
+    --sev-blocker: #e58676;
+    --sev-blocker-soft: #3a221e;
+    --sev-high: #e0a565;
+    --sev-high-soft: #382a1a;
+    --sev-medium: #d1b563;
+    --sev-medium-soft: #352d18;
+    --sev-low: #a3aca2;
+    --sev-low-soft: #262b26;
+
+    --status-fixed: #7fd1ab;
+    --status-fixed-soft: #1c3226;
+    --status-open: #e58676;
+    --status-open-soft: #3a221e;
+    --status-partial: #d1b563;
+    --status-partial-soft: #352d18;
+    --status-unverified: #93b3c9;
+    --status-unverified-soft: #1f2b32;
+
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 6px 24px rgba(0,0,0,0.35);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #141a17;
+      --paper-raised: #1b2320;
+      --paper-line: #303a34;
+      --ink: #eceee7;
+      --ink-muted: #a9b3a9;
+      --ink-faint: #76817a;
+      --accent: #6fb394;
+      --accent-soft: #203029;
+      --accent-ink: #bfe3d1;
+
+      --sev-blocker: #e58676;
+      --sev-blocker-soft: #3a221e;
+      --sev-high: #e0a565;
+      --sev-high-soft: #382a1a;
+      --sev-medium: #d1b563;
+      --sev-medium-soft: #352d18;
+      --sev-low: #a3aca2;
+      --sev-low-soft: #262b26;
+
+      --status-fixed: #7fd1ab;
+      --status-fixed-soft: #1c3226;
+      --status-open: #e58676;
+      --status-open-soft: #3a221e;
+      --status-partial: #d1b563;
+      --status-partial-soft: #352d18;
+      --status-unverified: #93b3c9;
+      --status-unverified-soft: #1f2b32;
+
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 6px 24px rgba(0,0,0,0.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15.5px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 3rem 1.75rem 5rem;
+  }
+
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; font-weight: 600; color: var(--ink); }
+
+  /* ---------- Header ---------- */
+  .report-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 2rem;
+  }
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .report-header h1 {
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    margin: 0;
+    line-height: 1.15;
+  }
+  .report-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.6rem;
+    font-size: 0.86rem;
+    color: var(--ink-muted);
+  }
+  .report-meta strong { color: var(--ink); font-weight: 600; }
+  .report-meta code {
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-radius: 4px;
+    padding: 0.05em 0.4em;
+    font-size: 0.88em;
+  }
+
+  /* ---------- Stat row ---------- */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--paper-line);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2.25rem;
+    box-shadow: var(--shadow);
+  }
+  .stat {
+    background: var(--paper-raised);
+    padding: 1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .stat .n {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .stat .n.good { color: var(--status-fixed); }
+  .stat .n.warn { color: var(--sev-blocker); }
+  .stat .label { font-size: 0.74rem; color: var(--ink-muted); letter-spacing: 0.02em; }
+
+  /* ---------- Section headings ---------- */
+  .section {
+    margin-top: 3rem;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+  }
+  .section-head h2 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+  .section-num {
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-right: 0.5rem;
+  }
+  .section-sub {
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+    margin: 0 0 1.1rem;
+    max-width: 74ch;
+  }
+
+  /* ---------- Table ---------- */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background: var(--paper-raised);
+  }
+  table { border-collapse: collapse; width: 100%; min-width: 980px; table-layout: fixed; }
+  thead th {
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 700;
+    padding: 0.75rem 0.9rem;
+    border-bottom: 1px solid var(--paper-line);
+    white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-line); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: color-mix(in srgb, var(--paper) 45%, transparent); }
+  td {
+    padding: 0.85rem 0.9rem;
+    vertical-align: top;
+    font-size: 0.87rem;
+    overflow-wrap: break-word;
+  }
+  td.item-cell { position: relative; padding-left: 1.1rem; }
+  td.item-cell::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.6rem; bottom: 0.6rem;
+    width: 4px;
+    border-radius: 3px;
+    background: var(--row-sev, var(--ink-faint));
+  }
+  .item-title { font-weight: 700; color: var(--ink); margin-bottom: 0.15rem; }
+  .cell-note { color: var(--ink-muted); font-size: 0.84rem; }
+  .et {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .et-note { display: block; font-weight: 400; color: var(--ink-muted); font-size: 0.78rem; margin-top: 0.1rem; white-space: normal; }
+
+  tr[data-sev="blocker"] { --row-sev: var(--sev-blocker); }
+  tr[data-sev="high"]    { --row-sev: var(--sev-high); }
+  tr[data-sev="medium"]  { --row-sev: var(--sev-medium); }
+  tr[data-sev="low"]     { --row-sev: var(--sev-low); }
+
+  .sev-pill, .status-pill, .feas-pill {
+    padding: 0.18em 0.62em;
+    border-radius: 100px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .sev-pill, .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    white-space: nowrap;
+  }
+  .feas-pill {
+    display: inline-block;
+    white-space: normal;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .sev-pill[data-sev="blocker"] { color: var(--sev-blocker); background: var(--sev-blocker-soft); }
+  .sev-pill[data-sev="high"]    { color: var(--sev-high);    background: var(--sev-high-soft); }
+  .sev-pill[data-sev="medium"]  { color: var(--sev-medium);  background: var(--sev-medium-soft); }
+  .sev-pill[data-sev="low"]     { color: var(--sev-low);     background: var(--sev-low-soft); }
+
+  .status-pill[data-st="fixed"]      { color: var(--status-fixed);      background: var(--status-fixed-soft); }
+  .status-pill[data-st="open"]       { color: var(--status-open);       background: var(--status-open-soft); }
+  .status-pill[data-st="partial"]    { color: var(--status-partial);    background: var(--status-partial-soft); }
+  .status-pill[data-st="unverified"] { color: var(--status-unverified); background: var(--status-unverified-soft); }
+
+  .feas-pill { background: var(--accent-soft); color: var(--accent-ink); }
+  .feas-dot {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: currentColor;
+    margin-right: 0.35em;
+    vertical-align: middle;
+  }
+  .feas-pill[data-f="low"] .feas-dot { opacity: 0.35; }
+  .feas-pill[data-f="med"] .feas-dot { opacity: 0.65; }
+  .feas-pill[data-f="high"] .feas-dot { opacity: 1; }
+
+  .risk { font-size: 0.84rem; color: var(--ink-muted); }
+  .risk strong { color: var(--sev-blocker); font-weight: 700; }
+
+  /* ---------- Findings cards ---------- */
+  .findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.1rem;
+  }
+  .finding-card {
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    box-shadow: var(--shadow);
+  }
+  .finding-card .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .finding-card p { margin: 0; font-size: 0.88rem; color: var(--ink-muted); }
+  .finding-card p + p { margin-top: 0.5rem; }
+  .finding-card code { background: var(--accent-soft); color: var(--accent-ink); border-radius: 4px; padding: 0.05em 0.35em; font-size: 0.85em; }
+
+  /* ---------- Rollup ---------- */
+  .rollup {
+    margin-top: 3rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--shadow);
+  }
+  .rollup h2 { font-size: 1.25rem; margin: 0 0 1rem; }
+  .rollup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+  .rollup-item .n { font-family: var(--font-display); font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+  .rollup-item .label { font-size: 0.78rem; color: var(--ink-muted); }
+  .rollup-item.active { background: var(--accent-soft); border-radius: 8px; padding: 0.6rem 0.75rem; margin: -0.6rem -0.75rem; }
+  .rollup-item.active .n { color: var(--accent-ink); }
+  .rollup-note { margin-top: 1.25rem; font-size: 0.87rem; color: var(--ink-muted); border-top: 1px solid var(--paper-line); padding-top: 1rem; }
+
+  /* ---------- Methodology / footer ---------- */
+  .methodology {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--ink);
+    font-size: 0.87rem;
+    color: var(--ink-muted);
+  }
+  .methodology h2 { font-size: 1.15rem; color: var(--ink); margin-bottom: 0.6rem; }
+  .methodology ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
+  .methodology li { margin-bottom: 0.35rem; }
+  .methodology strong { color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 1.1rem 3.5rem; }
+    td, thead th { padding: 0.65rem 0.6rem; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="report-header">
+    <span class="eyebrow">Follow-up to Storefront Audit &amp; Launch Readiness Report</span>
+    <h1>Capital Teas — QA Re-Verification &amp; Effort Estimate</h1>
+    <div class="report-meta">
+      <span>Verified against live store: <code>1t7aeh-fx.myshopify.com</code></span>
+      <span>Verification date: <strong>Jul 9, 2026</strong></span>
+      <span>Method: <strong>direct HTML/source inspection</strong> of storefront, PDP, and cart (see Methodology)</span>
+    </div>
+  </header>
+
+  <div class="stat-row">
+    <div class="stat"><span class="n">37</span><span class="label">Items assessed across all 3 sections</span></div>
+    <div class="stat"><span class="n good">4</span><span class="label">Already fixed or partially fixed since the report</span></div>
+    <div class="stat"><span class="n warn">18</span><span class="label">Confirmed still open (live-checked)</span></div>
+    <div class="stat"><span class="n">59h</span><span class="label">Total fix ET, Sections 1+2 only (see rollup)</span></div>
+    <div class="stat"><span class="n warn">5</span><span class="label">New issues found not in original report</span></div>
+    <div class="stat"><span class="n">$1,770</span><span class="label">Total cost at $30/hr (see Rate)</span></div>
+  </div>
+
+  <!-- ================= SECTION 1 ================= -->
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="section-num">1</span>Launch Blockers &amp; Critical Issues</h2>
+    </div>
+    <p class="section-sub">Re-checked against the live theme source. Two of these have already been fixed since the report was written — worth re-confirming the launch gate before re-scoping work here.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:17%">Issue</th>
+            <th style="width:10%">Severity</th>
+            <th style="width:25%">Live Verification (Jul 9)</th>
+            <th style="width:12%">ET</th>
+            <th style="width:11%">Feasibility</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-sev="high">
+            <td class="item-cell"><div class="item-title">Broken intention links</div><div class="cell-note">Shop by Intention cards</div></td>
+            <td><span class="sev-pill" data-sev="high">High</span></td>
+            <td><span class="status-pill" data-st="fixed">✓ Already fixed</span><div class="cell-note" style="margin-top:.4rem">All 6 cards (Immunity, Hydration, Calm, Energy/Focus, Digestion, Dessert/Indulgence) now link to real <code>/collections/*</code> URLs. No <code>href="#"</code> found in that section.</div></td>
+            <td><span class="et">—<span class="et-note">already fixed, verify only</span></span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>Trivial</span></td>
+            <td class="risk">None — close this line item, don't re-spend dev time on it.</td>
+          </tr>
+          <tr data-sev="high">
+            <td class="item-cell"><div class="item-title">Wishlist mismatch</div><div class="cell-note">Header icon vs. modal count</div></td>
+            <td><span class="sev-pill" data-sev="high">High</span></td>
+            <td><span class="status-pill" data-st="unverified">Needs live check</span><div class="cell-note" style="margin-top:.4rem">Confirmed powered by the <strong>Swym Wishlist</strong> app (<code>swymAdvancedHeaderIconConfig</code>). Count is injected client-side from Swym's own state — can't be verified from static HTML, but the two counters likely read from different Swym cache/list sources. <strong>Approach:</strong> check Swym support/config first — if they can sync the counters directly, use that; if not, build a theme-side fix forcing both to re-read from the same source on every add/remove event. ET covers either path.</div></td>
+            <td><span class="et">10h<span class="et-note">includes retest + diagnosis buffer</span></span></td>
+            <td><span class="feas-pill" data-f="med"><span class="feas-dot"></span>Medium</span></td>
+            <td class="risk">If the mismatch lives inside Swym's own script (not the theme integration), the fix may be capped by what Swym exposes — could need a <strong>Swym support ticket</strong>, pushing this to 1–2 days.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Duplicate bestsellers</div><div class="cell-note">"Bestsellers" grid + count label</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="fixed">✓ Already fixed</span><div class="cell-note" style="margin-top:.4rem">Homepage grid now shows exactly <strong>6 unique products</strong>, no repeats. The button no longer says "VIEW ALL 6 TEAS" — it's generic "VIEW ALL" now. Other tabs and <code>/collections/bestsellers</code> itself weren't re-checked.</div></td>
+            <td><span class="et">—<span class="et-note">already fixed, verify only</span></span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>Trivial</span></td>
+            <td class="risk">Low — if still wrong anywhere, it's a collection-curation fix in Admin, not a code fix.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Placeholder text</div><div class="cell-note">"cd" on Caramel Toffee Pu-erh</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="partial">Not reproduced</span><div class="cell-note" style="margin-top:.4rem">This card layout doesn't render a description snippet at all, and the PDP meta description is real copy. Likely already fixed, or lives in a card layout not checked (collection grid / quick-view).</div></td>
+            <td><span class="et">—<span class="et-note">not reproduced, verify only</span></span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>Trivial</span></td>
+            <td class="risk">None — Admin content edit only, no code involved.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Brewing contradiction</div><div class="cell-note">195°F badge vs. 208°F body text</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="open">✗ Confirmed open</span><div class="cell-note" style="margin-top:.4rem">Verified on the live PDP: ritual step badge reads "195°F", body copy reads "Water at 208°F — boiling", same section.</div></td>
+            <td><span class="et">1h<span class="et-note">spot-check a few other bestsellers</span></span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>High</span></td>
+            <td class="risk"><strong>Scoping risk:</strong> if brewing steps are entered per-product (not a shared template), this could be a data-entry error repeated across dozens of SKUs. Recommend a 0.25h/product audit pass before treating this as a 30-minute fix.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">AI "Our Story" image</div><div class="cell-note">Heritage section, ChatGPT-generated</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="open">✗ Confirmed open — broader than reported</span><div class="cell-note" style="margin-top:.4rem">Found <strong>3 distinct</strong> <code>ChatGPT_Image_*.png</code> files live on the site (Jun 8, Jun 10, Jun 12 2026) — one in the hero/story area, one on the PDP brewing-ritual card. Not just the single image cited.</div></td>
+            <td><span class="et">—<span class="et-note">Theme Editor image swap, no code</span></span></td>
+            <td><span class="feas-pill" data-f="low"><span class="feas-dot"></span>Blocked on assets</span></td>
+            <td class="risk"><strong>This is a production dependency, not a dev task.</strong> Real photography needs to be shot/licensed first — that can take days to weeks and is the most likely single item to blow the "end of May" timeline further. Escalate to the client now. If any of the 3 images turn out to be hardcoded in a snippet rather than a section setting, that one would need a small code edit instead — flag during implementation, not assumed here.</td>
+          </tr>
+          <tr data-sev="low">
+            <td class="item-cell"><div class="item-title">Testimonial issues</div><div class="cell-note">Typo + product name mismatch</div></td>
+            <td><span class="sev-pill" data-sev="low">Low</span></td>
+            <td><span class="status-pill" data-st="partial">Partially fixed</span><div class="cell-note" style="margin-top:.4rem">"after onemonth" typo is <strong>still present</strong>. The "Citrus Immunitea" naming mismatch is <strong>already fixed</strong> — testimonial now correctly tags "Citrus Immunity Boost".</div></td>
+            <td><span class="et">—<span class="et-note">trivial fix, not tracked separately</span></span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>Trivial</span></td>
+            <td class="risk">Confirm whether testimonials are hardcoded or pulled from a review/UGC app — changes where the edit happens, not the effort.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 2 ================= -->
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="section-num">2</span>Storefront, UX &amp; Conversion Recommendations</h2>
+    </div>
+    <p class="section-sub">All still-open unless noted. Theme is Dawn-derived (confirmed from source: <code style="background:var(--accent-soft);color:var(--accent-ink);padding:0.05em 0.35em;border-radius:4px;">card-wrapper</code>, <code style="background:var(--accent-soft);color:var(--accent-ink);padding:0.05em 0.35em;border-radius:4px;">list-menu</code>, section/schema pattern).</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:17%">Area</th>
+            <th style="width:10%">Priority</th>
+            <th style="width:25%">Live Verification / Notes</th>
+            <th style="width:12%">ET</th>
+            <th style="width:11%">Feasibility</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-sev="high">
+            <td class="item-cell"><div class="item-title">Mobile device QA</div></td>
+            <td><span class="sev-pill" data-sev="high">High</span></td>
+            <td><span class="status-pill" data-st="unverified">Needs live check</span><div class="cell-note" style="margin-top:.4rem">Can't be confirmed via source alone — needs a real cross-device pass (marquee, mega menu, variant pills, product grids).</div></td>
+            <td><span class="et">7h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>High</span></td>
+            <td class="risk">Standard QA, but bugs it surfaces aren't pre-estimated here — budget +50% contingency for fixes found during the pass.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Mobile sticky ATC</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="open">✗ Confirmed absent</span><div class="cell-note" style="margin-top:.4rem">No sticky-ATC markup/class anywhere in the PDP source.</div></td>
+            <td><span class="et">5h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>High</span></td>
+            <td class="risk">Low — well-documented pattern (scroll listener + variant/price sync). Test safe-area handling on notched iOS devices.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Typography hierarchy</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="open">✗ Confirmed, refined</span><div class="cell-note" style="margin-top:.4rem">PDP title actually renders as duplicate <code>&lt;h1&gt;</code> + <code>&lt;h2&gt;</code> (not h3 as described) — same real defect, worse for heading hierarchy/a11y than reported.</div></td>
+            <td><span class="et">9h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>High</span></td>
+            <td class="risk">Low. Scope the CSS-token pass to home/PDP/collection to avoid uncontrolled scope creep.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Spacing rhythm</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="unverified">Visual QA needed</span></td>
+            <td><span class="et">2h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>High</span></td>
+            <td class="risk">Low, but take before/after screenshots — token changes applied globally can shift pages not in scope.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Navigation taxonomy</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="partial">Partially confirmed</span><div class="cell-note" style="margin-top:.4rem">Nav says "Shop Rituals", homepage says "Shop by Intention" — both confirmed live. Literal "functional" wording wasn't found on the homepage (may be a collection-page title not yet checked).</div></td>
+            <td><span class="et">2h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>High</span></td>
+            <td class="risk">This is a naming <strong>decision</strong>, not a technical blocker — pick the canonical term with the client first. Renaming collection handles needs 301 redirects for SEO.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Header/footer taxonomy</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="open">✗ Confirmed, worse than reported</span><div class="cell-note" style="margin-top:.4rem">Rooibos / White Tea / Fruit Tisanes confirmed in nav, absent from footer. <strong>Matcha is gone entirely, not just unlinked</strong> — zero mentions of "matcha" (case-insensitive) anywhere in the source of the homepage, <code>/cart</code>, or the Caramel Toffee PDP, and <code>/collections/matcha</code> returns a live <strong>HTTP 404</strong>. Won't show up as a visibly broken element, since there's nothing on the page to click.</div></td>
+            <td><span class="et">1h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>Trivial</span></td>
+            <td class="risk">Before treating this as "add the missing link," confirm in Admin whether Matcha products were intentionally merged into another collection (e.g. Green Tea, still live in nav) — if so this is a taxonomy decision already made, not a regression to reverse.</td>
+          </tr>
+          <tr data-sev="low">
+            <td class="item-cell"><div class="item-title">Gift URL</div></td>
+            <td><span class="sev-pill" data-sev="low">Low</span></td>
+            <td><span class="status-pill" data-st="open">✗ Confirmed open</span><div class="cell-note" style="margin-top:.4rem">Nav: <code>/collections/gifts/Gift-Sets</code> · Footer: <code>/collections/gift-sets</code> — both live and different.</div></td>
+            <td><span class="et">1h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>Trivial</span></td>
+            <td class="risk">Add a URL redirect from the deprecated path — don't just repoint the link, or a bookmarked/indexed URL 404s.</td>
+          </tr>
+          <tr data-sev="low">
+            <td class="item-cell"><div class="item-title">Mega menu imagery</div></td>
+            <td><span class="sev-pill" data-sev="low">Low</span></td>
+            <td><span class="status-pill" data-st="open">✗ Confirmed open</span><div class="cell-note" style="margin-top:.4rem">Only 1 <code>&lt;img&gt;</code> in the entire header (the logo) — dropdown panels are plain <code>list-menu</code> text.</div></td>
+            <td><span class="et">7h</span></td>
+            <td><span class="feas-pill" data-f="med"><span class="feas-dot"></span>Medium</span></td>
+            <td class="risk">Needs new schema/blocks (not in Dawn by default) <strong>and</strong> new imagery — same asset-sourcing dependency as the "Our Story" photo. Also watch Core Web Vitals impact (checklist item 14).</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Free shipping progress</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="open">✗ Confirmed open</span><div class="cell-note" style="margin-top:.4rem">Zero mentions of "$65" or "free shipping" anywhere on <code>/cart</code>.</div></td>
+            <td><span class="et">5h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>High</span></td>
+            <td class="risk">Low, standard <code>cart.total_price</code> pattern. Confirm $65 is still the current business threshold before hardcoding it.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">"Find Your Tea" quiz</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="fixed">✓ Verified sufficient</span><div class="cell-note" style="margin-top:.4rem">Link is present in nav <em>and</em> a homepage promo section (4 references total) — already discoverable, not under-surfaced as a broken/missing link. Treated as resolved, no further action needed.</div></td>
+            <td><span class="et">—<span class="et-note">verified sufficient, no action needed</span></span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>Trivial</span></td>
+            <td class="risk">None — close this line item.</td>
+          </tr>
+          <tr data-sev="medium">
+            <td class="item-cell"><div class="item-title">Social proof / reviews</div></td>
+            <td><span class="sev-pill" data-sev="medium">Medium</span></td>
+            <td><span class="status-pill" data-st="unverified">Needs per-template check</span><div class="cell-note" style="margin-top:.4rem">12,480-review count and 4.9★ average confirmed live on homepage; PDP widget load wasn't audited across the full catalog.</div></td>
+            <td><span class="et">4h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>High</span></td>
+            <td class="risk">Low, unless the underlying sync is broken app-side — that needs a vendor ticket, not a theme fix.</td>
+          </tr>
+          <tr data-sev="low">
+            <td class="item-cell"><div class="item-title">Cross-sell</div></td>
+            <td><span class="sev-pill" data-sev="low">Low</span></td>
+            <td><span class="status-pill" data-st="open">✗ Confirmed absent</span><div class="cell-note" style="margin-top:.4rem">No cross-sell markup found on the PDP.</div></td>
+            <td><span class="et">5h</span></td>
+            <td><span class="feas-pill" data-f="high"><span class="feas-dot"></span>High</span></td>
+            <td class="risk">Low — Shopify's native product-recommendations endpoint covers most of the logic. Recommendation quality may need a manual curation pass per product line.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3 ================= -->
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="section-num">3</span>Launch QA Checklist</h2>
+    </div>
+    <p class="section-sub">This section is a sign-off gate over the same work in Sections 1–2, not additional build scope — no separate ET is estimated here (see Effort rollup for the total, which covers Sections 1–2 only).</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:5%">#</th>
+            <th style="width:16%">Area</th>
+            <th style="width:11%">Severity</th>
+            <th style="width:38%">Notes</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-sev="blocker"><td class="item-cell">1</td><td>Inventory</td><td><span class="sev-pill" data-sev="blocker">Blocker</span></td><td class="cell-note">Needs Admin access — variants/purchasability can't be checked from the storefront alone.</td><td class="risk">Scales with catalog size (SKU count unknown).</td></tr>
+          <tr data-sev="blocker"><td class="item-cell">2</td><td>Checkout</td><td><span class="sev-pill" data-sev="blocker">Blocker</span></td><td class="cell-note">End-to-end order + all payment methods.</td><td class="risk"><strong>Payment activation gaps</strong> (Shopify Payments not yet live, missing tax setup) are commonly discovered only at this step — treat as a real go/no-go risk, not just a test.</td></tr>
+          <tr data-sev="blocker"><td class="item-cell">3</td><td>Go-live</td><td><span class="sev-pill" data-sev="blocker">Blocker</span></td><td class="cell-note">Domain + SSL + password removal + indexing.</td><td class="risk">Forgetting to remove <code>noindex</code>/store password is the single most common real-world launch-day mistake — put this last, as a hard gate. Also allow time for DNS propagation.</td></tr>
+          <tr data-sev="blocker"><td class="item-cell">4</td><td>Tax &amp; Shipping</td><td><span class="sev-pill" data-sev="blocker">Blocker</span></td><td class="cell-note">Rates + $65 threshold config (UI build tracked separately above).</td><td class="risk">US sales-tax nexus setup is a compliance risk — worth a quick accountant/Shopify Tax sanity check, not QA judgment alone.</td></tr>
+          <tr data-sev="high"><td class="item-cell">5</td><td>Content</td><td><span class="sev-pill" data-sev="high">High</span></td><td class="cell-note">Broken/placeholder elements — see Section 1, rows 1–4.</td><td class="risk">—</td></tr>
+          <tr data-sev="medium"><td class="item-cell">6</td><td>Content</td><td><span class="sev-pill" data-sev="medium">Medium</span></td><td class="cell-note">Brewing temp + testimonial — see Section 1, rows 5 &amp; 7. 12,480-review count confirmed live and internally consistent.</td><td class="risk">Low.</td></tr>
+          <tr data-sev="medium"><td class="item-cell">7</td><td>Content</td><td><span class="sev-pill" data-sev="medium">Medium</span></td><td class="cell-note">AI image — see Section 1, row 6 (3 images, not 1). Also found a stray <code>testt</code> CSS class on a price element — minor, but signals leftover dev artifacts worth a broader sweep.</td><td class="risk">Same photography dependency flagged above.</td></tr>
+          <tr data-sev="high"><td class="item-cell">8</td><td>Navigation</td><td><span class="sev-pill" data-sev="high">High</span></td><td class="cell-note">Link/redirect audit across header + footer.</td><td class="risk">Low.</td></tr>
+          <tr data-sev="medium"><td class="item-cell">9</td><td>Navigation</td><td><span class="sev-pill" data-sev="medium">Medium</span></td><td class="cell-note">Mega menu confirmed text-only (Section 2). Breadcrumbs/404 not yet checked.</td><td class="risk">Low.</td></tr>
+          <tr data-sev="high"><td class="item-cell">10</td><td>Product &amp; Cart</td><td><span class="sev-pill" data-sev="high">High</span></td><td class="cell-note">PDP load, Subscribe &amp; Save clarity, quick view/wishlist.</td><td class="risk">Wishlist fix (Section 1) should land before this QA pass, not after.</td></tr>
+          <tr data-sev="high"><td class="item-cell">11</td><td>Product &amp; Cart</td><td><span class="sev-pill" data-sev="high">High</span></td><td class="cell-note">Free-shipping bar (build tracked above), discount codes, express checkout.</td><td class="risk">Low.</td></tr>
+          <tr data-sev="medium"><td class="item-cell">12</td><td>Product &amp; Cart</td><td><span class="sev-pill" data-sev="medium">Medium</span></td><td class="cell-note">Filtering/sorting + cross-sell (build tracked above).</td><td class="risk">Low.</td></tr>
+          <tr data-sev="high"><td class="item-cell">13</td><td>Mobile</td><td><span class="sev-pill" data-sev="high">High</span></td><td class="cell-note">Same effort as Section 2 "Mobile device QA" — don't double count.</td><td class="risk">—</td></tr>
+          <tr data-sev="medium"><td class="item-cell">14</td><td>Performance</td><td><span class="sev-pill" data-sev="medium">Medium</span></td><td class="cell-note">WebP/lazy-load, Core Web Vitals, PageSpeed.</td><td class="risk"><strong>Real risk, not hypothetical</strong> — the homepage alone loads multiple full-size PNG hero images plus 3rd-party widgets (Swym, reviews, quiz). A failing CWV score could add 1–2 days of image re-export + script-deferral work.</td></tr>
+          <tr data-sev="high"><td class="item-cell">15</td><td>SEO</td><td><span class="sev-pill" data-sev="high">High</span></td><td class="cell-note">Titles/meta, sitemap, structured data, canonical, robots. <strong>Confirmed: homepage <code>og:image</code> is completely missing</strong> — the report's own note was correct.</td><td class="risk">Low once og:image is set; re-verify OG cards with a link-preview debugger after the fix.</td></tr>
+          <tr data-sev="high"><td class="item-cell">16</td><td>Analytics</td><td><span class="sev-pill" data-sev="high">High</span></td><td class="cell-note">GA4 + Meta Pixel firing, cookie consent.</td><td class="risk">Pixels configured against the dev domain sometimes don't carry over cleanly to the production domain — retest after the domain cutover, not before.</td></tr>
+          <tr data-sev="medium"><td class="item-cell">17</td><td>Marketing</td><td><span class="sev-pill" data-sev="medium">Medium</span></td><td class="cell-note">Welcome/abandoned-cart/post-purchase flows, SMTP, newsletter sync.</td><td class="risk"><strong>"Ready" may be optimistic</strong> — if flows need to be built rather than verified, this becomes 1–2 days, not hours. Confirm build status before quoting effort.</td></tr>
+          <tr data-sev="medium"><td class="item-cell">18</td><td>Trust &amp; Legal</td><td><span class="sev-pill" data-sev="medium">Medium</span></td><td class="cell-note">Policy pages, contact form, a11y basics, social links.</td><td class="risk">A spot-check isn't a WCAG audit. If accessibility needs to hold up to real scrutiny, budget a separate deeper pass using the heading/landmark/focus/contrast patterns in the a11y skill.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= NEW FINDINGS ================= -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Findings not in the original report</h2>
+    </div>
+    <p class="section-sub">Surfaced during live verification — worth folding into the same launch-readiness pass.</p>
+    <div class="findings-grid">
+      <div class="finding-card">
+        <span class="tag">Regression, stronger than first stated</span>
+        <p><code>/collections/matcha</code> returns HTTP 404 and "matcha" appears zero times in the source of the homepage, cart, or PDP checked — the collection doesn't exist under that handle anymore, it's not just missing from nav/footer. Confirm in Admin whether it was merged into another collection (e.g. Green Tea) before treating this as something to fix.</p>
+      </div>
+      <div class="finding-card">
+        <span class="tag">Broader scope</span>
+        <p>The AI-image problem covers <strong>3 files</strong>, not 1 — hero/story area plus the PDP brewing-ritual card. Photography sourcing should be scoped for all three, not one.</p>
+      </div>
+      <div class="finding-card">
+        <span class="tag">Dev hygiene</span>
+        <p>A leftover <code>testt</code> CSS class is present on a live price element — harmless today, but a marker that a "remove test/dev content" sweep (checklist #7) should be literal, not just visual.</p>
+      </div>
+      <div class="finding-card">
+        <span class="tag">Confirmed</span>
+        <p>The report's own <code>og:image</code> note checks out — it's genuinely absent from the homepage <code>&lt;head&gt;</code>, not a false positive.</p>
+      </div>
+      <div class="finding-card">
+        <span class="tag">Precision</span>
+        <p>The "duplicate H3" title issue is actually a duplicate <code>&lt;h1&gt;</code> + <code>&lt;h2&gt;</code> on the PDP — same defect, more serious for heading hierarchy/SEO than the original description suggested.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ROLLUP ================= -->
+  <div class="rollup">
+    <h2>Effort rollup</h2>
+    <div class="rollup-grid">
+      <div class="rollup-item"><div class="n">11h</div><div class="label">Section 1 — Launch Blockers &amp; Critical Issues (dev/content time)</div></div>
+      <div class="rollup-item"><div class="n">48h</div><div class="label">Section 2 — Storefront, UX &amp; Conversion builds</div></div>
+      <div class="rollup-item"><div class="n">59h</div><div class="label">Total — roughly 8 working days for one person</div></div>
+    </div>
+    <p class="rollup-note">
+      <strong>Section 3 is intentionally excluded from this total.</strong> It's a sign-off gate, not incremental build work — most of its rows cross-reference the same fixes already counted in Sections 1–2, and the rest (inventory, checkout, domain/SSL, tax, performance, SEO, analytics, marketing, legal) are pass/fail verification and Admin/vendor-side checks. The same applies to 6 items across Sections 1–2 that are already fixed, trivial, Admin-only content edits, or verified sufficient on re-check (broken intention links, duplicate bestsellers, placeholder text, testimonial typo, AI "Our Story" image swap, "Find Your Tea" quiz) — marked with no ET.
+    </p>
+    <p class="rollup-note">
+      With one developer focused on Sections 1–2, this is roughly <strong>8 working days</strong>. Two items sit outside dev control entirely and should be started <em>today</em>, in parallel with everything else: <strong>real brand photography</strong> (blocks the AI-image fix and the mega-menu-imagery upgrade) and <strong>DNS/SSL cutover + tax/payment activation</strong> (has its own propagation and compliance lead time). Neither shrinks by adding developer hours.
+    </p>
+  </div>
+
+  <!-- ================= RATE ================= -->
+  <div class="rollup" style="margin-top:1.5rem;">
+    <h2>Rate</h2>
+    <div class="rollup-grid">
+      <div class="rollup-item"><div class="n">$35/hr</div><div class="label">Under 20h</div></div>
+      <div class="rollup-item active"><div class="n">$30/hr</div><div class="label">20–100h</div></div>
+      <div class="rollup-item"><div class="n">$25/hr</div><div class="label">Over 100h</div></div>
+    </div>
+    <p class="rollup-note">This project: <strong>59h → $30/hr</strong></p>
+  </div>
+
+  <!-- ================= TOTAL COST ================= -->
+  <div class="rollup" style="margin-top:1.5rem;">
+    <h2>Total Cost</h2>
+    <div class="rollup-grid">
+      <div class="rollup-item"><div class="n">$1,770</div><div class="label">59h &times; $30/hr</div></div>
+    </div>
+  </div>
+
+  <!-- ================= METHODOLOGY ================= -->
+  <div class="methodology">
+    <h2>Methodology &amp; limitations</h2>
+    <ul>
+      <li><strong>What was checked live:</strong> homepage, the Caramel Toffee Pu-erh PDP, and the empty cart page, fetched directly from <code>1t7aeh-fx.myshopify.com</code> and inspected at the HTML/source level (link targets, meta tags, heading structure, section markup) — not screenshots, so this catches things a visual pass can miss and vice versa.</li>
+      <li><strong>What couldn't be checked this way:</strong> anything requiring Shopify Admin access (inventory, taxes, discount codes, Admin-configured navigation menus) or an interactive browser session (wishlist add/remove state, sticky-scroll behavior, checkout payment flows, email triggers, GA4/Meta Pixel firing, cookie consent, contrast/keyboard testing). These are marked <span class="status-pill" data-st="unverified">Needs live/admin check</span> and estimated from the theme patterns visible in the source plus standard Shopify practice — confirm once you have store access.</li>
+      <li><strong>ET basis:</strong> grounded in this theme's actual structure (a Dawn-derived theme, confirmed from class naming and section/schema conventions) and the patterns in this project's <code>shopify-liquid-themes</code>, <code>liquid-theme-standards</code>, and <code>liquid-theme-a11y</code> skills — not a generic Shopify estimate.</li>
+      <li><strong>Next step for a tighter estimate:</strong> connect the Shopify Admin MCP integration (currently unauthenticated in this session) so inventory, tax, discount, and navigation-menu state can be checked directly instead of estimated from indirect evidence.</li>
+    </ul>
+  </div>
+
+</div>
