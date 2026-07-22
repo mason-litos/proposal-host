@@ -1,0 +1,249 @@
+<title>Gated Livestream Event Product — Shopify Plus Development Proposal</title>
+<style>
+  :root {
+    --paper: #ffffff;
+    --paper-raised: #f6f8fa;
+    --paper-line: #e2e4ea;
+    --ink: #1a1d29;
+    --ink-muted: #62677f;
+    --accent: #106ab1;
+    --accent-soft: #dce9f4;
+    --accent-ink: #0d5690;
+
+    --cta: #1c1f2e;
+    --cta-soft: #e7e8ec;
+    --cta-ink: #1c1f2e;
+
+    --shadow: 0 1px 2px rgba(20,25,40,0.08), 0 6px 20px rgba(20,25,40,0.07);
+    --font-display: ui-serif, Charter, "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-sans-serif, Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 760px; margin: 0 auto; padding: 3rem 1.75rem 5rem; }
+
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; font-weight: 600; color: var(--ink); }
+  a { color: var(--accent-ink); }
+  p { margin: 0.6rem 0; }
+
+  .report-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 2rem;
+  }
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    font-weight: 700;
+  }
+  .report-header h1 { font-size: clamp(1.6rem, 3vw, 2.15rem); margin: 0; line-height: 1.15; }
+  .report-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; font-size: 0.86rem; color: var(--ink-muted); }
+  .report-meta strong { color: var(--ink); font-weight: 600; }
+  .report-meta code {
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-radius: 4px;
+    padding: 0.05em 0.4em;
+    font-size: 0.88em;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--paper-line);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+  .stat { background: var(--paper-raised); padding: 1rem 1.15rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .stat .n { font-family: var(--font-display); font-size: 1.4rem; font-variant-numeric: tabular-nums; line-height: 1.2; color: var(--accent-ink); }
+  .stat .n.hero { color: var(--cta-ink); }
+  .stat .extra { font-size: 0.82rem; font-weight: 600; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+  .stat .label { font-size: 0.74rem; color: var(--ink-muted); letter-spacing: 0.02em; }
+
+  .section { margin-top: 2.5rem; }
+  .section h2 { font-size: 1.25rem; margin: 0 0 0.9rem; }
+  .option-block { margin-top: 1.75rem; }
+  .option-block h3 { font-size: 1.05rem; margin: 0 0 0.35rem; }
+  .option-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.15em 0.55em;
+    border-radius: 4px;
+    margin-left: 0.5em;
+    vertical-align: middle;
+  }
+  .option-tag.recommended { background: var(--accent-soft); color: var(--accent-ink); }
+  .option-tag.simple { background: var(--cta-soft); color: var(--cta-ink); }
+  .option-note { font-size: 0.86rem; color: var(--ink-muted); margin: 0.3rem 0 1rem; }
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background: var(--paper);
+    margin: 1rem 0;
+  }
+  table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+  tbody tr { border-bottom: 1px solid var(--paper-line); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 0.85rem 1.1rem; vertical-align: top; font-size: 0.92rem; }
+  td.num { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; text-align: right; }
+  tr.subtotal td { font-weight: 700; border-top: 2px solid var(--ink); }
+  tr.total td { font-weight: 700; background: var(--cta-soft); color: var(--cta-ink); font-size: 1rem; }
+  tr.excluded td { color: var(--ink-muted); font-style: italic; }
+
+  .rollup {
+    margin-top: 1rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    padding: 1.4rem 1.6rem;
+    box-shadow: var(--shadow);
+  }
+  .rollup .sub { font-size: 0.85rem; color: var(--ink-muted); }
+  .rollup .big { font-family: var(--font-display); font-size: 2.2rem; font-variant-numeric: tabular-nums; color: var(--cta-ink); margin: 0.4rem 0; }
+
+  .callout {
+    margin: 1rem 0;
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+  }
+  .callout strong { color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 1.1rem 3.5rem; }
+    td { padding: 0.65rem 0.7rem; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="report-header">
+    <span class="eyebrow">Shopify Plus Development Proposal</span>
+    <h1>Gated Livestream Event Product</h1>
+    <div class="report-meta">
+      <span>Feature: <strong>restrict event product purchase to livestream QR-verified customers only</strong></span>
+    </div>
+    <div class="report-meta">
+      <span>Platform: <strong>Shopify Plus</strong></span>
+      <span>Date: <strong>July 22, 2026</strong></span>
+      <span>Rate: <code>$25/hr</code></span>
+    </div>
+  </header>
+
+  <section class="section" style="margin-top:0;">
+    <h2>Solution Overview</h2>
+    <p>The feature is technically feasible on Shopify Plus. It is not a native Shopify capability — it requires a custom app. Two architecture options are proposed below, differing in how strictly the purchase is enforced.</p>
+    <p><strong>Option A (recommended)</strong> enforces verification at checkout with a Shopify Function — the restriction cannot be bypassed by direct API calls or express checkout (Shop Pay, Apple Pay, Google Pay). Requires Shopify Plus.</p>
+    <p><strong>Option B (simplified)</strong> only shows/hides the buy button on the storefront based on verification state. Faster and cheaper to build, does not require Shopify Plus — but a technically capable customer could bypass verification entirely and purchase without ever scanning the QR code, since there is no server-side enforcement at checkout.</p>
+  </section>
+
+  <section class="section">
+    <h2>Option A — Full Solution <span class="option-tag recommended">Recommended</span></h2>
+    <p class="option-note">Checkout-level enforcement via Shopify Function. Cannot be bypassed by direct storefront/cart API calls. Requires Shopify Plus (custom apps using Shopify Function APIs are Plus-only).</p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n">64h</span><span class="label">Development</span></div>
+      <div class="stat"><span class="n">18h</span><span class="label">PM, QA, Testing</span></div>
+      <div class="stat"><span class="n hero">$2,050</span><span class="extra">82h · $25/hr</span><span class="label">Total cost</span></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr><td>App scaffold, infrastructure &amp; Shopify connection</td><td class="num">8h</td></tr>
+          <tr><td>Event product setup (duplicate + special pricing)</td><td class="num">4h</td></tr>
+          <tr><td>Event page + code verification + rate limiting</td><td class="num">14h</td></tr>
+          <tr><td>Product page gating UI (show/hide by verification state)</td><td class="num">12h</td></tr>
+          <tr><td>Checkout enforcement logic (Shopify Function)</td><td class="num">14h</td></tr>
+          <tr><td>Admin panel (create / view / deactivate codes)</td><td class="num">12h</td></tr>
+          <tr class="subtotal"><td>Development</td><td class="num">64h</td></tr>
+          <tr><td>Full-flow QA &amp; testing (incl. bypass attempts)</td><td class="num">12h</td></tr>
+          <tr><td>Production deployment &amp; handover docs</td><td class="num">6h</td></tr>
+          <tr class="subtotal"><td>PM, QA, Testing</td><td class="num">18h</td></tr>
+          <tr class="total"><td>Total</td><td class="num">82h</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rollup">
+      <div class="sub">Rate: $25/hr</div>
+      <div class="big">$2,050</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Option B — Simplified Solution <span class="option-tag simple">Faster / Lower cost</span></h2>
+    <p class="option-note">Front-end gating only (show/hide buy button). No Shopify Function, no checkout-level enforcement. Does not require Shopify Plus.</p>
+    <div class="callout"><strong>Risk to accept before choosing this option:</strong> a customer with basic technical knowledge (browser DevTools, or calling the storefront cart API directly) can purchase the event product at the special price without scanning the QR code or entering a verification code. This is an inherent limitation of front-end-only gating, not a bug that can be fully patched while keeping this simpler architecture.</div>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n">46h</span><span class="label">Development</span></div>
+      <div class="stat"><span class="n">13h</span><span class="label">PM, QA, Testing</span></div>
+      <div class="stat"><span class="n hero">$1,475</span><span class="extra">59h · $25/hr</span><span class="label">Total cost</span></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr><td>App scaffold, infrastructure &amp; Shopify connection</td><td class="num">8h</td></tr>
+          <tr><td>Event product setup (duplicate + special pricing)</td><td class="num">4h</td></tr>
+          <tr><td>Event page + code verification + rate limiting</td><td class="num">14h</td></tr>
+          <tr><td>Product page gating UI (show/hide button only)</td><td class="num">8h</td></tr>
+          <tr><td>Admin panel (create / view / deactivate codes)</td><td class="num">12h</td></tr>
+          <tr class="subtotal"><td>Development</td><td class="num">46h</td></tr>
+          <tr><td>QA &amp; testing</td><td class="num">8h</td></tr>
+          <tr><td>Production deployment &amp; handover docs</td><td class="num">5h</td></tr>
+          <tr class="subtotal"><td>PM, QA, Testing</td><td class="num">13h</td></tr>
+          <tr class="total"><td>Total</td><td class="num">59h</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rollup">
+      <div class="sub">Rate: $25/hr</div>
+      <div class="big">$1,475</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Platform &amp; Infrastructure Requirements</h2>
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr><td>Shopify Plus plan</td><td>Required for Option A only — custom apps using Shopify Function APIs (checkout enforcement) are Plus-exclusive. Option B can run on any standard Shopify plan.</td></tr>
+          <tr><td>Custom app hosting</td><td>Required for both options — Shopify does not host the app backend. A separate server (e.g. Fly.io, Render, Vercel) is needed, with ongoing hosting cost not included in the one-time development estimate above.</td></tr>
+          <tr><td>Verification code length</td><td>A 4-character code has a very small keyspace and can be brute-forced in seconds without rate limiting. Both estimates above include rate limiting; a minimum of 6 alphanumeric characters is recommended if UX allows.</td></tr>
+          <tr><td>Instant code deactivation</td><td>Manual deactivation by the admin takes effect within 15–30 minutes, not instantly, on a standard Shopify Plus plan. True real-time revocation requires Shopify Plus Enterprise (network access inside Shopify Functions) — an additional cost to consider if instant revocation is a hard requirement.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.86rem;color:var(--ink-muted);">Note: the estimates above are preliminary, intended for scoping and budget discussion. Final effort should be confirmed after a detailed requirements review with the client.</p>
+  </section>
+
+</div>
