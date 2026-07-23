@@ -79,6 +79,9 @@
 
   .section { margin-top: 2.5rem; }
   .section h2 { font-size: 1.25rem; margin: 0 0 0.9rem; }
+  .section ul { margin: 0.6rem 0; padding-left: 1.2rem; font-size: 0.92rem; }
+  .section ul li { margin-bottom: 0.5rem; }
+  .section ul li strong { color: var(--ink); }
 
   .table-wrap {
     overflow-x: auto;
@@ -122,14 +125,14 @@
       <span>Design reference: <a href="https://www.figma.com/design/cXMSRS7dwJ9pPPf7pIjwsk/Apulse_%ED%98%91%EB%A0%A5%EC%82%AC%EC%9A%A9_Shopify" target="_blank" rel="noopener">Apulse Figma file</a></span>
     </div>
     <div class="report-meta">
-      <span>Base theme: <strong>Horizon</strong></span>
+      <span>Base theme: <strong>Impact</strong> ($400 one-time license)</span>
     </div>
   </header>
 
   <div class="stat-row">
-    <div class="stat"><span class="n">122h</span><span class="label">Development</span></div>
-    <div class="stat"><span class="n">20h</span><span class="label">PM, QA, Testing</span></div>
-    <div class="stat"><span class="n hero">$2,840</span><span class="extra">142h · $20/hr</span><span class="label">Total cost</span></div>
+    <div class="stat"><span class="n">77h</span><span class="label">Development</span></div>
+    <div class="stat"><span class="n">15h</span><span class="label">PM, QA, Testing</span></div>
+    <div class="stat"><span class="n hero">$1,840</span><span class="extra">92h · $20/hr</span><span class="label">Total cost</span></div>
   </div>
 
   <section class="section">
@@ -137,32 +140,33 @@
     <div class="table-wrap">
       <table>
         <tbody>
-          <tr><td>Header</td><td class="num">8h</td></tr>
-          <tr><td>Footer</td><td class="num">6h</td></tr>
-          <tr><td>Homepage</td><td class="num">20h</td></tr>
-          <tr><td>PLP</td><td class="num">6h</td></tr>
-          <tr><td>PDP</td><td class="num">22h</td></tr>
-          <tr><td>Search predictive/page</td><td class="num">11h</td></tr>
-          <tr><td>Cart Drawer</td><td class="num">4h</td></tr>
-          <tr><td>Cart Page</td><td class="num">4h</td></tr>
-          <tr><td>Contact us</td><td class="num">6h</td></tr>
-          <tr><td>FAQ</td><td class="num">5h</td></tr>
-          <tr><td>Notice</td><td class="num">6h</td></tr>
-          <tr><td>Cases</td><td class="num">7h</td></tr>
-          <tr><td>About</td><td class="num">6h</td></tr>
+          <tr><td>Header</td><td class="num">4h</td></tr>
+          <tr><td>Footer</td><td class="num">4h</td></tr>
+          <tr><td>Homepage</td><td class="num">12h</td></tr>
+          <tr><td>PLP</td><td class="num">5h</td></tr>
+          <tr><td>PDP</td><td class="num">14h</td></tr>
+          <tr><td>Search predictive/page</td><td class="num">5h</td></tr>
+          <tr><td>Cart Drawer</td><td class="num">2.5h</td></tr>
+          <tr><td>Cart Page</td><td class="num">2.5h</td></tr>
+          <tr><td>Contact us</td><td class="num">4h</td></tr>
+          <tr><td>FAQ</td><td class="num">3h</td></tr>
+          <tr><td>Notice</td><td class="num">4h</td></tr>
+          <tr><td>Cases</td><td class="num">4h</td></tr>
+          <tr><td>About</td><td class="num">4h</td></tr>
           <tr><td>Policy Pages</td><td class="num">2h</td></tr>
-          <tr><td>404</td><td class="num">2h</td></tr>
+          <tr><td>404</td><td class="num">1h</td></tr>
           <tr><td>Cookie Banner</td><td class="num">3h</td></tr>
-          <tr><td>Newsletter Popup</td><td class="num">4h</td></tr>
-          <tr class="subtotal"><td>Development</td><td class="num">122h</td></tr>
-          <tr><td>PM, QA, Testing</td><td class="num">20h</td></tr>
-          <tr class="total"><td>Total</td><td class="num">142h</td></tr>
+          <tr><td>Newsletter Popup</td><td class="num">3h</td></tr>
+          <tr class="subtotal"><td>Development</td><td class="num">77h</td></tr>
+          <tr><td>PM, QA, Testing</td><td class="num">15h</td></tr>
+          <tr class="total"><td>Total</td><td class="num">92h</td></tr>
         </tbody>
       </table>
     </div>
     <div class="rollup">
       <div class="sub">Rate: $20/hr</div>
-      <div class="big">$2,840</div>
+      <div class="big">$1,840</div>
+      <div class="sub">Theme license (separate, one-time): Impact, $400 — purchased directly by the client.</div>
     </div>
   </section>
 
@@ -173,10 +177,22 @@
         <tbody>
           <tr><td>PDP — Customer Reviews</td><td>Judge.me — required (includes review submission)</td></tr>
           <tr><td>Homepage — testimonial carousel</td><td>Judge.me — optional: only if these must be real, verified customer reviews. If it's marketing-style testimonial content instead, this can be a plain native section with manually-entered content, no app needed.</td></tr>
+          <tr><td>Contact Us</td><td><a href="https://qikify.com/install/contact-form?ref=litextension" target="_blank" rel="noopener">Qikify Contact Form</a> — optional. Default is Shopify's own native contact form; Qikify is only needed if app-managed forms (routing, conditional logic, submissions dashboard) are wanted instead.</td></tr>
         </tbody>
       </table>
     </div>
     <p style="font-size:0.86rem;color:var(--ink-muted);">Note: for any app-based section, how closely it matches the Figma design depends on how much that app allows custom styling — if it doesn't support deep customization, the section follows the app's own default layout instead.</p>
+  </section>
+
+  <section class="section">
+    <h2>Implementation Notes</h2>
+    <ul>
+      <li><strong>Contact Us:</strong> uses Shopify's own native contact form by default, extended with the design's extra fields. Qikify (see Apps table above) is only needed if app-managed forms are wanted instead.</li>
+      <li><strong>Search:</strong> layout-only customization — the search function itself (indexing, ranking) stays the theme's default.</li>
+      <li><strong>Notice:</strong> built as a Blog category, not a separate template — Notice posts are regular blog articles grouped into their own category.</li>
+      <li><strong>PDP:</strong> metafields/metaobjects work if all products share the same section layout. Products needing a genuinely different layout would need separate product templates — to confirm before build.</li>
+      <li><strong>About:</strong> built as a standard page template, not metafields/metaobjects — it's a one-off page, not repeated structured content.</li>
+    </ul>
   </section>
 
 </div>
