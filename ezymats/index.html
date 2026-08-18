@@ -176,10 +176,10 @@
   </header>
 
   <div class="stat-row">
-    <div class="stat"><span class="n hero">$2,850</span><span class="extra">95h total</span><span class="label">Proposed cost</span></div>
-    <div class="stat"><span class="n">75h</span><span class="extra">$2,250</span><span class="label">Core dev — replicate + 12 improvements, Dawn storefront build</span></div>
+    <div class="stat"><span class="n hero">$2,550</span><span class="extra">85h total · RECOMMENDED</span><span class="label">Proposed cost — recommended option</span></div>
+    <div class="stat"><span class="n">65h</span><span class="extra">$1,950</span><span class="label">Core dev — replicate + 12 improvements, one unified listing layout</span></div>
     <div class="stat"><span class="n">20h</span><span class="extra">$600</span><span class="label">Design — UI/UX &amp; storefront</span></div>
-    <div class="stat"><span class="n">1,598</span><span class="extra">96 products · 522 posts</span><span class="label">URLs in sitemap — scale of the current content</span></div>
+    <div class="stat"><span class="n">95h</span><span class="extra">$2,850</span><span class="label">Alternative — keep all 3 of the original layouts</span></div>
   </div>
 
   <!-- ================= 1. AUDIT ================= -->
@@ -223,7 +223,7 @@
       <li><strong>The current responsive behaviour is patch on top of patch.</strong> <code>responsive.css</code> is only 0.7 KB; the 81 real media queries are buried in a 59 KB <code>custom.css</code>. Dawn is responsive out of the box on the Online Store 2.0 standard — we get that for free instead of debugging the old rules.</li>
       <li><strong>The fixed 1030px container is a design decision, not a bug.</strong> In Dawn, content width is a theme editor setting. Ezymats gets a wider layout that uses modern screens properly — and <strong>can change it later</strong> without a developer.</li>
     </ul>
-    <div class="callout"><strong>Our honest recommendation.</strong> Given the current state, we'd advise Ezymats to <strong>redesign</strong> rather than replicate 1:1. Several of the original layouts (particularly the three different product listing styles) don't map onto Dawn's standard sections and would require more hand-coding than they're worth. That's why this proposal separates <strong>design as its own 20h line</strong> alongside the 75h of core dev — see Section 11. If Ezymats still prefers a straight 1:1 replicate with no design phase, we can do that with the core dev portion alone.</div>
+    <div class="callout"><strong>Our honest recommendation.</strong> Given the current state, we'd advise Ezymats to <strong>redesign</strong> rather than replicate 1:1. Several of the original layouts (particularly the three different product listing styles) don't map onto Dawn's standard sections and would require more hand-coding than they're worth. That's why this proposal separates <strong>design as its own 20h line</strong> alongside the 65h of core dev — see Section 11. If Ezymats still prefers a straight 1:1 replicate with no design phase, we can do that with the core dev portion alone.</div>
   </section>
 
   <!-- ================= 3. THREE LAYOUTS ================= -->
@@ -244,7 +244,7 @@
 
     <p>Three layouts means three templates to build, three rounds of QA, and three places to edit every time something changes. Our recommendation: <strong>consolidate to a single card layout</strong> used across every collection, and keep the price-list view as a separate section if Ezymats needs it for wholesale buyers.</p>
 
-    <div class="callout"><strong>Effect on price.</strong> The 75h core dev estimate in Section 11 already assumes <strong>keeping all three layouts</strong> as they are today. If Ezymats agrees to consolidate to one, that scope drops by <strong>10h</strong> — $300 saved, and a storefront that's considerably easier to maintain afterwards. This is Ezymats' choice, not a condition from us.</div>
+    <div class="callout"><strong>Effect on price — and this is our strongest recommendation.</strong> Consolidating to a single layout takes core dev from 75h down to <strong>65h</strong>: $300 saved <em>and</em> a storefront that is considerably easier to maintain. Ezymats pays less and gets the better outcome — that combination is rare enough to be worth taking. So <strong>65h is the option we recommend</strong> in the pricing in Section 11; keeping all three layouts (75h) is the alternative if Ezymats has a specific reason to stay close to the original site.</div>
   </section>
 
   <!-- ================= 4. HEADER & MEGA MENU ================= -->
@@ -382,7 +382,7 @@
   <!-- ================= 11. EFFORT & COST ================= -->
   <section class="section">
     <div class="section-head"><span class="section-num">11</span><h2>Effort &amp; cost</h2></div>
-    <div class="callout"><strong>What these hours include — and what they don't.</strong> The hours below are <strong>core dev</strong>: rebuilding the full storefront on Dawn following the current site's layout, plus the 12 improvement items described above, plus basic app setup. Design is a separate 20h line, and the two together total 95h. <strong>Not included:</strong> data transfer and redirects — that work is carried out by <strong>LitExtension</strong> and quoted separately, outside our scope and commitments — and app licence fees.</div>
+    <div class="callout"><strong>What these hours include — and what they don't.</strong> The hours below are <strong>core dev</strong>: rebuilding the full storefront on Dawn following the current site's layout, plus the 12 improvement items described above, plus basic app setup. Design is a separate 20h line, and the two together total 85h on the recommended option. <strong>Not included:</strong> data transfer and redirects — that work is carried out by <strong>LitExtension</strong> and quoted separately, outside our scope and commitments — and app licence fees.</div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Work package</th><th>ET</th></tr></thead>
@@ -390,15 +390,15 @@
           <tr><td>Shopify + Dawn setup: theme install, brand configuration (fonts, colours, logo), global settings, header/footer, mega menu with imagery + banner slot</td><td class="num">8h</td></tr>
           <tr><td>Information architecture: 41 collections, normalising 147 tags into structured metafields (thickness, colour, size, material), configuring Search &amp; Discovery filters + predictive search</td><td class="num">8h</td></tr>
           <tr><td>Homepage: the full section set from Section 5 — hero, trust bar, category tiles in real HTML, featured products, FAQ, Google reviews, blog section, SEO content block, newsletter</td><td class="num">12h</td></tr>
-          <tr><td>Collection templates — <strong>all 3 product listing layouts</strong> as on the current site (Section 3) + new product card (hover add-to-cart &amp; quick view, "View Details" removed) + filtering and pagination</td><td class="num">20h</td></tr>
+          <tr><td>Collection templates — <strong>one unified product listing layout</strong> (Section 3) + new product card (hover add-to-cart &amp; quick view, "View Details" removed) + filtering and pagination</td><td class="num">10h</td></tr>
           <tr><td>Product template: gallery, quantity price table (metafields), specification table, tabs, enquiry form, back-in-stock alerts, related products</td><td class="num">12h</td></tr>
           <tr><td>Static pages &amp; SEO landing pages: page templates, rebuilding 10 city pages and ~20 keyword landing pages</td><td class="num">8h</td></tr>
           <tr><td>App setup &amp; configuration: reviews, back-in-stock, quantity discounts</td><td class="num">3h</td></tr>
           <tr><td>QA on desktop + tablet + mobile, test orders, launch, handover session</td><td class="num">4h</td></tr>
-          <tr class="total"><td><strong>Total core dev</strong> — replicate + 12 improvements, storefront built on Dawn</td><td class="num">75h</td></tr>
-          <tr><td><strong>Design</strong> — UI/UX direction, homepage, collection, product page, landing pages, mobile, type &amp; spacing system <em>(separate from the 75h)</em></td><td class="num">20h</td></tr>
-          <tr class="total"><td><strong>Total proposed</strong></td><td class="num">95h</td></tr>
-          <tr class="strike"><td>Optional reduction — consolidate to <strong>1 product listing layout</strong> instead of keeping all 3 (Section 3)</td><td class="num">−10h</td></tr>
+          <tr class="total"><td><strong>Total core dev</strong> — replicate + 12 improvements, storefront built on Dawn</td><td class="num">65h</td></tr>
+          <tr><td><strong>Design</strong> — UI/UX direction, homepage, collection, product page, landing pages, mobile, type &amp; spacing system <em>(separate from the 65h)</em></td><td class="num">20h</td></tr>
+          <tr class="total"><td><strong>Total proposed — recommended option</strong></td><td class="num">85h</td></tr>
+          <tr><td>Added if <strong>all 3 listing layouts</strong> are kept as on the current site (Section 3) — <em>not recommended</em></td><td class="num">+10h</td></tr>
         </tbody>
       </table>
     </div>
@@ -407,16 +407,16 @@
       <table>
         <thead><tr><th></th><th>ET</th><th>Rate</th><th>Cost</th></tr></thead>
         <tbody>
-          <tr><td><strong>Core dev</strong> — storefront build on Dawn per the scope above, replicating the current site with the 12 improvements, plus basic app setup</td><td class="num">75h</td><td>$30/hr</td><td class="num">$2,250</td></tr>
+          <tr><td><strong>Core dev</strong> — storefront build on Dawn per the scope above, replicating the current site with the 12 improvements, one unified listing layout, plus basic app setup</td><td class="num">65h</td><td>$30/hr</td><td class="num">$1,950</td></tr>
           <tr><td><strong>Design</strong> — UI/UX direction and storefront design</td><td class="num">20h</td><td>$30/hr</td><td class="num">$600</td></tr>
-          <tr class="total"><td><strong>Total proposed</strong></td><td class="num">95h</td><td>$30/hr</td><td class="num">$2,850</td></tr>
-          <tr><td>Optional reduction — consolidate to 1 product listing layout instead of 3 (Section 3)</td><td class="num">−10h</td><td>$30/hr</td><td class="num">−$300</td></tr>
+          <tr class="total"><td><strong>Total proposed — recommended option</strong></td><td class="num">85h</td><td>$30/hr</td><td class="num">$2,550</td></tr>
+          <tr><td>Alternative — keep all 3 product listing layouts as on the current site (Section 3)</td><td class="num">95h</td><td>$30/hr</td><td class="num">$2,850</td></tr>
           <tr><td>Option — quantity discounts via a <strong>Shopify Discount Function</strong> instead of an app</td><td class="num">TBD</td><td>app dev rate</td><td class="num">Quoted separately</td></tr>
           <tr><td>Option — keeping the <strong>shipping calculator on the product page</strong></td><td class="num">TBD</td><td>—</td><td class="num">Depends on approach chosen</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:0.86rem;color:var(--ink-muted);"><strong>Rate basis:</strong> 95h (75h core dev + 20h design) falls in the 21–100h band for design / theme development / third-party app integration → $30/hr per the standard rate card.</p>
+    <p style="font-size:0.86rem;color:var(--ink-muted);"><strong>Rate basis:</strong> 85h (65h core dev + 20h design) falls in the 21–100h band for design / theme development / third-party app integration → $30/hr per the standard rate card.</p>
 
     <h3>Non-labour costs — budget separately</h3>
     <div class="table-wrap">
@@ -438,8 +438,8 @@
 
     <div class="rollup">
       <div class="sub">Rate: $30/hr</div>
-      <div class="big">$2,850</div>
-      <div class="sub">95h proposed — 75h core dev (Dawn storefront build, replicate + 12 improvements, app setup) + 20h design. Excludes the non-labour costs above <em>and</em> the data transfer quoted separately by LitExtension. If Ezymats opts to consolidate to one product listing layout: 10h less — $2,550.</div>
+      <div class="big">$2,550</div>
+      <div class="sub"><strong>85h — recommended option:</strong> 65h core dev (Dawn storefront build, replicate + 12 improvements, one unified listing layout, app setup) + 20h design. If Ezymats prefers to keep all three original layouts: 95h — $2,850. Excludes the non-labour costs above <em>and</em> the data transfer quoted separately by LitExtension.</div>
     </div>
   </section>
 
@@ -447,8 +447,8 @@
   <section class="section">
     <div class="section-head"><span class="section-num">12</span><h2>To confirm before we start</h2></div>
     <ul>
-      <li><strong>Scope of the visual work</strong> — take the full 95h (75h core dev + 20h design) as we recommend in Section 2, or the 75h core dev alone and replicate 1:1 with no design phase?</li>
-      <li><strong>Product listing layouts</strong> — keep all 3 as on the current site (already priced into the 75h) or consolidate to 1 (10h less, $300)? This is the only remaining item that moves the estimate.</li>
+      <li><strong>Scope of the visual work</strong> — take the full 85h (65h core dev + 20h design) as we recommend in Section 2, or the 65h core dev alone and replicate 1:1 with no design phase?</li>
+      <li><strong>Product listing layouts</strong> — consolidate to 1 as we recommend (already priced into the 65h), or keep all 3 as on the current site (+10h, +$300)? This is the only remaining item that moves the estimate.</li>
       <li><strong>Quantity pricing</strong> — an app (fast, monthly fee) or a Shopify Discount Function (no monthly fee, quoted separately)? Worth settling early, since 60% of the catalog depends on it.</li>
       <li><strong>Shipping calculator on the product page</strong> — keep it as it is today, or accept Shopify's standard behaviour of calculating shipping at cart/checkout?</li>
       <li><strong>72 static pages</strong> — keep all of them, or merge/drop the duplicates? (There's both a <code>/sitemap/</code> and a <code>/site-map/</code>, and <code>/mma-mats/</code> exists as both a page and a category.)</li>
