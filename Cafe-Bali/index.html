@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cafe Bali — Angebot für den Wechsel von Squarespace zu Shopify</title>
+<style>
+  :root {
+    --paper: #ffffff;
+    --paper-raised: #f7f5f1;
+    --paper-line: #e5ded4;
+    --ink: #2d2925;
+    --ink-muted: #675f56;
+    --ink-faint: #9b9389;
+    --accent: #6f6254;
+    --accent-soft: #eee8df;
+    --accent-ink: #4c4035;
+    --cta: #9f5c34;
+    --cta-soft: #f4e2d4;
+    --cta-ink: #703719;
+    --shadow: 0 1px 2px rgba(45,41,37,0.08), 0 6px 20px rgba(45,41,37,0.07);
+    --font-display: ui-serif, Charter, "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-sans-serif, Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 3rem 1.75rem 5rem; }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; font-weight: 600; color: var(--ink); }
+  a { color: var(--accent-ink); }
+
+  .report-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 2rem;
+  }
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    font-weight: 700;
+  }
+  .report-header h1 { font-size: clamp(1.6rem, 3vw, 2.15rem); margin: 0; line-height: 1.15; }
+  .report-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; font-size: 0.86rem; color: var(--ink-muted); }
+  .report-meta strong { color: var(--ink); font-weight: 600; }
+  .report-meta code {
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-radius: 4px;
+    padding: 0.05em 0.4em;
+    font-size: 0.88em;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--paper-line);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2.25rem;
+    box-shadow: var(--shadow);
+  }
+  .stat { background: var(--paper-raised); padding: 1rem 1.15rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .stat .n { font-family: var(--font-display); font-size: 1.4rem; font-variant-numeric: tabular-nums; line-height: 1.2; color: var(--accent-ink); }
+  .stat .n.hero { color: var(--cta-ink); }
+  .stat .label { font-size: 0.74rem; color: var(--ink-muted); letter-spacing: 0.02em; }
+
+  .section { margin-top: 2.75rem; }
+  .section-head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.9rem; }
+  .section-head h2 { font-size: 1.35rem; margin: 0; }
+  .section-num {
+    color: #fff;
+    background: var(--accent);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+  p { margin: 0.6rem 0; }
+  ul { margin: 0.6rem 0; padding-left: 1.3rem; }
+  li { margin-bottom: 0.4rem; }
+
+  .callout {
+    background: var(--cta-soft);
+    border-left: 4px solid var(--cta);
+    border-radius: 0 10px 10px 0;
+    padding: 0.9rem 1.2rem;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+    color: var(--cta-ink);
+  }
+  .callout strong { color: var(--cta-ink); }
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background: var(--paper-raised);
+    margin: 1rem 0;
+  }
+  table { border-collapse: collapse; width: 100%; min-width: 480px; table-layout: fixed; }
+  thead th {
+    text-align: left;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 700;
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  tbody tr { border-bottom: 1px solid var(--paper-line); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 0.8rem 0.9rem; vertical-align: top; font-size: 0.88rem; overflow-wrap: break-word; }
+  td.label-cell { font-weight: 700; color: var(--ink); white-space: nowrap; }
+  .num { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+  tr.total td { font-weight: 700; background: var(--accent-soft); color: var(--accent-ink); }
+
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  figure {
+    margin: 0;
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--paper-raised);
+    box-shadow: var(--shadow);
+  }
+  figure img { width: 100%; display: block; height: auto; }
+  figcaption { padding: 0.75rem 0.9rem; font-size: 0.8rem; color: var(--ink-muted); }
+  .note { font-size: 0.86rem; color: var(--ink-muted); }
+  .rollup {
+    margin-top: 1rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    padding: 1.4rem 1.6rem;
+    box-shadow: var(--shadow);
+  }
+  .rollup .sub { font-size: 0.85rem; color: var(--ink-muted); }
+  .rollup .big { font-family: var(--font-display); font-size: 2.2rem; font-variant-numeric: tabular-nums; color: var(--cta-ink); margin: 0.4rem 0; }
+
+  @media (max-width: 640px) {
+    .page { padding: 2rem 1.1rem 3.5rem; }
+    td, thead th { padding: 0.6rem 0.55rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="report-header">
+    <div class="eyebrow">Angebot für den Wechsel von Squarespace zu Shopify</div>
+    <h1>Cafe Bali — Umsetzung und Neugestaltung der Shopify-Shop-Oberfläche</h1>
+    <div class="report-meta">
+      <span><strong>Website:</strong> <a href="https://www.cafebali.de/">cafebali.de</a></span>
+      <span><strong>Datum:</strong> 29. Sep. 2026</span>
+      <span><strong>Stundensatz:</strong> 30 USD/Std.</span>
+    </div>
+  </header>
+
+  <div class="stat-row">
+    <div class="stat"><span class="n hero">2.250 USD</span><span class="label">Option 1 · nur Entwicklung · 75 Std.</span></div>
+    <div class="stat"><span class="n hero">2.700 USD</span><span class="label">Option 2 · Entwicklung + Design · 90 Std.</span></div>
+    <div class="stat"><span class="n">30 USD</span><span class="label">Stundensatz</span></div>
+    <div class="stat"><span class="n">5</span><span class="label">Screenshots der Website-Analyse</span></div>
+  </div>
+
+  <div class="callout"><strong>Leistungsumfang:</strong> Dieses Angebot umfasst ausschließlich die Shopify-Shop-Oberfläche, einschließlich UI/UX-Design und Frontend-Theme-Entwicklung. Die Datenmigration der Website wird separat durch LitExtension durchgeführt und ist nicht in den unten aufgeführten Stunden oder Preisen enthalten.</div>
+
+  <section class="section">
+    <div class="section-head"><span class="section-num">1</span><h2>Website-Analyse</h2></div>
+    <p>Cafe Bali ist mehr als eine reine Café-Website. Es gibt zwei zentrale Nutzerwege: Gäste, die Informationen zum Café, zur Speisekarte und zur Reservierung suchen, sowie Kunden des Onlineshops. Die Shopify-Shop-Oberfläche sollte diese Wege klar voneinander trennen, statt alle Inhalte in einer einzigen Navigation abzubilden.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Bereich</th><th>Aktuelle Beobachtung</th><th>Vorgeschlagene Lösung</th></tr></thead>
+        <tbody>
+          <tr><td class="label-cell">Umfangreiche Navigation</td><td>Das Vollbildmenü gewichtet alle Links gleich und nimmt den größten Teil des sichtbaren Bereichs ein.</td><td>Kompakte Desktop-Navigation und übersichtliches mobiles Menü, gegliedert nach Café und Shop.</td></tr>
+          <tr><td class="label-cell">Zwei Geschäftsbereiche</td><td>Die Website richtet sich an Café-Besucher und Onlineshop-Kunden mit unterschiedlichen Zielen.</td><td>Zwei klare Hauptwege schaffen: Café besuchen und online einkaufen.</td></tr>
+          <tr><td class="label-cell">Footer-Hierarchie</td><td>Viele Links haben die gleiche visuelle Gewichtung, wodurch wichtige Informationen schwerer erfassbar sind.</td><td>Footer mit klareren Gruppen, Bezeichnungen und Priorisierung der Kontaktdaten neu strukturieren.</td></tr>
+          <tr><td class="label-cell">Produktsuche</td><td>Kunden benötigen schnellere Möglichkeiten, Produkte nach Preis und Verfügbarkeit zu filtern.</td><td>Shopify-Kollektionen, Filter, Kundenkonten und Loyalty-Funktionen konfigurieren.</td></tr>
+          <tr><td class="label-cell">Mobiler Kaufprozess</td><td>Navigation, Warenkorb und Kaufaktionen können mobil schneller erreichbar sein.</td><td>Fixierten Header, Menü-Logo-Warenkorb-Anordnung, Slider für ähnliche Produkte und fixierten Warenkorb-Button umsetzen.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><span class="section-num">2</span><h2>Analyse der aktuellen Website</h2></div>
+    <div class="evidence-grid">
+      <figure>
+        <img src="assets/cafe-bali-proposal/image5.png" alt="Screenshot des Vollbildmenüs von Cafe Bali">
+        <figcaption><strong>Navigation:</strong> Das aktuelle Menü füllt fast den gesamten sichtbaren Bereich. Eine kompaktere Struktur verbessert Übersicht und Zugriff.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/cafe-bali-proposal/image4.png" alt="Screenshot des Footers von Cafe Bali">
+        <figcaption><strong>Footer:</strong> Viele gleich gewichtete Links erschweren das schnelle Erfassen der Inhalte.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/cafe-bali-proposal/image1.png" alt="Kommentierter Screenshot des Cafe-Bali-Footers">
+        <figcaption><strong>Footer-Details:</strong> Copyright-, Rechts- und Website-Credit-Angaben sollten in einer klaren sekundären Zeile gebündelt werden.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/cafe-bali-proposal/image3.png" alt="Screenshot der Cafe-Bali-Club-Anmeldung">
+        <figcaption><strong>Cafe Bali Club:</strong> Die bestehende Anmeldung bietet eine gute Grundlage für Loyalität und Kundenbindung auf Shopify.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/cafe-bali-proposal/image2.png" alt="Screenshot des mobilen Headers von Cafe Bali">
+        <figcaption><strong>Mobiler Header:</strong> Eine klarere Anordnung von Menü, Logo und Warenkorb mit fixiertem Verhalten verbessert Navigation und Kaufzugriff.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><span class="section-num">3</span><h2>Option 1 — Umsetzung der bestehenden Oberfläche</h2></div>
+    <p>Umsetzung der Shopify-Shop-Oberfläche auf Basis des aktuellen Cafe-Bali-Designs. Diese Option umfasst ausschließlich die Frontend-Theme-Entwicklung; ein neues UI-Design und die Datenmigration sind nicht enthalten.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Entwicklungsleistung</th><th>Stunden</th></tr></thead>
+        <tbody>
+          <tr><td>Analyse, Prüfung der Sitemap und Einrichtung der Shopify-Shop-Oberfläche</td><td class="num">5 Std.</td></tr>
+          <tr><td>Einrichtung des Themes entsprechend dem aktuellen Cafe-Bali-Design</td><td class="num">10 Std.</td></tr>
+          <tr><td>Seitentemplates: Startseite, Reservierung, Speisekarte, Jobs, Kontakt und Rechtliches</td><td class="num">12 Std.</td></tr>
+          <tr><td>Shop-Oberfläche: Kollektions- und Produktvorlagen sowie Preis- und Bestandsfilter</td><td class="num">13 Std.</td></tr>
+          <tr><td>Trennung der Navigation in Café- und Shop-Bereich</td><td class="num">5 Std.</td></tr>
+          <tr><td>Umsetzung des Footers und der Inhaltshierarchie</td><td class="num">4 Std.</td></tr>
+          <tr><td>Mobiler Header, Menü-Logo-Warenkorb-Anordnung und fixiertes Verhalten</td><td class="num">7 Std.</td></tr>
+          <tr><td>Produktseite: Slider für ähnliche Produkte und fixierter Warenkorb-Button</td><td class="num">7 Std.</td></tr>
+          <tr><td>Apps: Bewertungen, WhatsApp-Chat, Live-Chat, Sprachen und bei Bedarf Formulare</td><td class="num">5 Std.</td></tr>
+          <tr><td>Qualitätssicherung, Responsive-Test und Übergabe</td><td class="num">7 Std.</td></tr>
+          <tr class="total"><td><strong>Entwicklung gesamt</strong></td><td class="num">75 Std.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rollup">
+      <div class="sub">Option 1: 75 Std. Entwicklung zu 30 USD/Std.</div>
+      <div class="big">2.250 USD</div>
+      <div class="sub">Ausschließlich Frontend-Entwicklung der Shop-Oberfläche. Das bestehende Design bleibt erhalten; die Datenmigration übernimmt LitExtension.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><span class="section-num">4</span><h2>Option 2 — UI/UX-Design + Storefront-Entwicklung</h2></div>
+    <p>Neugestaltung der zentralen Nutzerwege und Umsetzung der freigegebenen Oberfläche auf Shopify. Diese Option umfasst UI/UX-Design und Frontend-Theme-Entwicklung; die Datenmigration erfolgt separat durch LitExtension.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Leistungsbereich</th><th>Stunden</th></tr></thead>
+        <tbody>
+          <tr><td>UX-Analyse, Abbildung der Nutzerwege und Sitemap</td><td class="num">8 Std.</td></tr>
+          <tr><td>Visuelle Ausrichtung und Design der Schlüsselseiten</td><td class="num">16 Std.</td></tr>
+          <tr><td>Einrichtung des Shopify-Themes und Umsetzung des Designs</td><td class="num">18 Std.</td></tr>
+          <tr><td>Startseite, Café-Seiten, Speisekarte, Reservierung, Jobs und Kontakt</td><td class="num">12 Std.</td></tr>
+          <tr><td>Shop-Struktur, Kollektionen, Filter und Produktvorlage</td><td class="num">14 Std.</td></tr>
+          <tr><td>Loyalty- und Mitgliederprozess, Bewertungen, WhatsApp, Live-Chat, Sprach- und Formular-Apps</td><td class="num">7 Std.</td></tr>
+          <tr><td>Optimierung der mobilen UX: fixierter Header, Menü, Produkt-Slider und fixierter Warenkorb-Button</td><td class="num">8 Std.</td></tr>
+          <tr><td>Qualitätssicherung, Responsive-Test, Launch-Begleitung und Übergabe</td><td class="num">7 Std.</td></tr>
+          <tr class="total"><td><strong>Design + Entwicklung gesamt</strong></td><td class="num">90 Std.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rollup">
+      <div class="sub">Option 2: 90 Std. Design + Entwicklung zu 30 USD/Std.</div>
+      <div class="big">2.700 USD</div>
+      <div class="sub">Enthält eine überarbeitete UI/UX-Ausrichtung und die Umsetzung der Shopify-Shop-Oberfläche. Die Datenmigration ist ausgeschlossen.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><span class="section-num">5</span><h2>Empfohlene Shopify-Struktur</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Bereich</th><th>Empfohlene Struktur</th><th>Nutzen</th></tr></thead>
+        <tbody>
+          <tr><td class="label-cell">Café</td><td>Öffnungszeiten, Reservierung, Speisekarte, Take-away, Standort und Jobs.</td><td>Schneller Zugang für lokale Besucher, die nicht online einkaufen möchten.</td></tr>
+          <tr><td class="label-cell">Shop</td><td>Alle Produkte, Neuheiten, Angebote, Getränke, Lebensmittel, Küchenmesser, Zubehör, Lifestyle und Marken.</td><td>Greift die bestehenden Kategorien auf und macht sie leichter durchsuchbar.</td></tr>
+          <tr><td class="label-cell">Produktseite</td><td>Klares Bild, Preis, Verfügbarkeit, fixierter Warenkorb-Button und mobiler Slider für ähnliche Produkte.</td><td>Unterstützt einen schnelleren und übersichtlicheren mobilen Kaufprozess.</td></tr>
+          <tr><td class="label-cell">Kundenbindung</td><td>Cafe Bali Club, Punkte- oder Mitgliedervorteile, Bewertungsanfrage sowie WhatsApp und Live-Chat.</td><td>Die bestehende Club-Anmeldung mit 20 % Vorteil kann zu einem nachhaltigen Kundenbindungsprozess ausgebaut werden.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><span class="section-num">6</span><h2>Apps und offene Punkte</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Punkt</th><th>Empfehlung</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="label-cell">Datenmigration</td><td>Produkt-, Kunden-, Bestell-, Kollektions- und Inhaltsdaten werden durch LitExtension migriert.</td><td>Nicht Bestandteil dieses Angebots</td></tr>
+          <tr><td class="label-cell">Bewertungen</td><td>Bewertungs-App installieren und Bewertungen auf den Produktseiten anzeigen.</td><td>In beiden Optionen enthalten</td></tr>
+          <tr><td class="label-cell">WhatsApp-Chat</td><td>Schwebenden WhatsApp- oder Kontaktzugang hinzufügen.</td><td>Enthalten</td></tr>
+          <tr><td class="label-cell">Live-Chat</td><td>Nur ergänzen, wenn das Team Anfragen in Echtzeit beantworten kann.</td><td>Zu bestätigen</td></tr>
+          <tr><td class="label-cell">Mehrsprachigkeit</td><td>Je nach finalen Sprachanforderungen die Shopify-Sprachfunktionen oder eine passende App verwenden.</td><td>Sprachen bestätigen</td></tr>
+          <tr><td class="label-cell">Bewerbungsformular</td><td>Formular-App verwenden, falls Bewerbungen im Backend verwaltet werden sollen.</td><td>Prozess bestätigen</td></tr>
+          <tr><td class="label-cell">Speisekartenseite</td><td>Aktuell ist keine Warenkorb-Aktion sichtbar. Zu klären ist, ob die Seite nur informieren oder Online-Bestellungen ermöglichen soll.</td><td>Umfang bestätigen</td></tr>
+          <tr><td class="label-cell">Reservierungsseite</td><td>Bei der Analyse wurden keine Inhalte angezeigt. Der gewünschte Buchungsablauf und Anbieter sind zu bestätigen.</td><td>Vor der Umsetzung bestätigen</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout"><strong>Empfehlung:</strong> Option 2. Sie umfasst sowohl das UI/UX-Redesign als auch die Entwicklung der Shopify-Shop-Oberfläche und schafft klarere Nutzerwege für Café und Shop sowie ein stärkeres E-Commerce-Erlebnis.</div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><span class="section-num">7</span><h2>Zuständigkeiten bei der Konfiguration</h2></div>
+    <p><strong>Zahlungs- und Versandeinstellungen werden von Cafe Bali im eigenen Shopify-Adminbereich vorgenommen. Wir beraten, dokumentieren und prüfen; wir geben keine Zugangsdaten ein und speichern sie nicht.</strong></p>
+    <p>Zahlungsanbieter erfordern Händlerzugangsdaten und API-Schlüssel mit finanziellem Zugriff auf das Unternehmen. Versandkonten enthalten zudem individuelle Tarifvereinbarungen. Diese Daten sollten ausschließlich beim Kontoinhaber verbleiben. Alle übrigen Arbeiten an der Shop-Oberfläche werden von uns umgesetzt; die Datenmigration erfolgt separat durch LitExtension.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Punkt</th><th>Cafe Bali</th><th>Unser Team</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="label-cell">Zahlungsanbieter</td>
+            <td>Händlerkonto eröffnen, Zugangsdaten im Shopify-Adminbereich eingeben und die erste Live-Transaktion durchführen.</td>
+            <td>Geeigneten Anbieter empfehlen, eine Schritt-für-Schritt-Anleitung bereitstellen und den Checkout anschließend vollständig prüfen.</td>
+          </tr>
+          <tr>
+            <td class="label-cell">Versandzonen und -tarife</td>
+            <td>Versandzonen und Tarifstufen im Shopify-Adminbereich eingeben und bei Preisänderungen des Versanddienstleisters aktualisieren.</td>
+            <td>Eine genaue Übersicht der Zonen und Tarife erstellen, durch die Einrichtung führen und reale Ziele sowie Gewichte im Checkout testen.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Diese Aufgabenteilung reduziert die angebotenen Stunden nicht. Die Konfigurationszeit wird durch Dokumentation, begleitete Einrichtung und anschließende Prüfung ersetzt.</p>
+  </section>
+
+</div>
+</body>
+</html>
