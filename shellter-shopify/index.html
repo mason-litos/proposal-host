@@ -186,7 +186,6 @@
   </div>
 
   <p>You want to start with a small store that you can test and then grow, rather than a full build on day one. Customers should be able to learn about the caps, build their own in a 3D configurator and pay for it in the same visit. We build the store and its pages, upload your full product list, set up checkout and California sales tax with you, and give you a guide so your team can run the store after launch.</p>
-  <div class="callout"><strong>What changed since the last version:</strong> a Shop page replaces the Collection page (§1.1). We now upload all of your products, not just a few demos (§2). The configurator section now recommends one route (§3). Card payments, refundable pre-order deposits and your California tax setup are covered in §4. After-launch support is in §7.3. The price is unchanged.</div>
 
   <!-- ================= 1. WHAT THE TEST STORE INCLUDES ================= -->
   <section class="section">
@@ -242,7 +241,7 @@
       </table>
     </div>
     <p>Customers reach PRO and PRO PLUS through the configurator, but both still exist as full Shopify products, because they're what the configurator puts in the cart.</p>
-    <div class="callout"><strong>We upload all of them:</strong> once you send the full list with SKUs and prices, we create every product and variant. The prices in Shopify are the ones customers pay, so they come from your list, not from the current configurator. Our guide (§7.1) covers adding and editing products after launch.</div>
+    <div class="callout"><strong>We need the detailed list to estimate accurately:</strong> we understand the list is small, but these are configurable products. Our developer reviewed your 3D configurator demo and saw many variants per product, which take more effort to set up than standard products. Please send the full list with SKUs, options and prices when it's ready. The 9h in §7.1 covers a standard setup. If the list needs more work than that, we'll tell you how much before we start, and the extra hours are billed separately (§7.3).</div>
   </section>
 
   <!-- ================= 3. CONFIGURATOR → CART ================= -->
@@ -275,9 +274,9 @@
       <li>A larger <strong>deposit</strong> charged later, still refundable until the cap ships from the factory</li>
       <li>The <strong>remaining balance</strong>, paid before delivery</li>
     </ol>
-    <p>Shopify can support this model, but it needs a pre-order app. We recommend <strong><a href="https://apps.shopify.com/preproduct" target="_blank" rel="noopener">PreProduct Pre-Order</a></strong> (rated 4.9 from 108 reviews). It supports deposit-based pre-orders and customizable emails at each payment stage. It collects the remaining balance by charging the saved card later or by sending a payment link. Refunds, full or partial (such as just the reservation fee or the deposit), are handled directly in your Shopify admin.</p>
+    <p>Shopify can support this model, but it needs a pre-order app, combined with sending invoices or payment links manually for the later payments. We recommend <strong><a href="https://apps.shopify.com/preproduct" target="_blank" rel="noopener">PreProduct Pre-Order</a></strong> (rated 4.9 from 108 reviews). It supports deposit-based pre-orders and customizable emails at each payment stage. It collects the remaining balance by charging the saved card later or by sending a payment link. Refunds, full or partial (such as just the reservation fee or the deposit), are handled directly in your Shopify admin.</p>
     <p>One limitation: Shopify's pre-order checkout needs <strong>Shopify Payments or PayPal Express</strong>. Shop Pay, Apple Pay and Google Pay aren't available for pre-orders.</p>
-    <p>This is the solution we're proposing for your exact 3-step flow. When we reach that stage, we'll test it on your store, since it also depends on your payment settings.</p>
+    <p>Since customers wait 2–3 months for their cap, you'll need to tell them the expected delivery date clearly, on the product page and in the order emails.</p>
 
     <h3>4.3 California sales tax</h3>
     <p>We keep this simple for the test store, as you asked:</p>
@@ -289,6 +288,7 @@
       <li>Your accountant confirms the final settings before launch.</li>
     </ul>
     <p>Shopify Tax is free for your first <strong>$100,000</strong> in lifetime sales. After that, the fee is 0.35% of each order where tax is collected, up to $0.99 per order.</p>
+    <p><strong>Please confirm how you want tax calculated for California.</strong> If it's a percentage up or down, or a fixed amount, it's covered in the 1h above. If you need a more complex formula, describe it and we'll quote the hours separately (§5, question 5).</p>
   </section>
 
   <!-- ================= 5. OPEN QUESTIONS ================= -->
@@ -302,7 +302,8 @@
           <tr><td class="num">1</td><td>Does Angle 3D Configurator meet your needs? If not, which requirements does it miss?</td><td>This is the heart of the store (§3), so we want to settle it before the build starts.</td></tr>
           <tr><td class="num">2</td><td>On what date will you send the product list (SKUs and prices) and the content (photos, logo, descriptions, color palette)?</td><td>The timeline in §6 starts from these.</td></tr>
           <tr><td class="num">3</td><td>Do you have the homepage design file and image assets?</td><td>With them, we match your reference exactly and confirm the final price. Without them, we recreate it ourselves in the same style (§1.3).</td></tr>
-          <tr><td class="num">4</td><td>Do you have specific expectations for support after launch?</td><td>We'll make sure they're covered (§7.3).</td></tr>
+          <tr><td class="num">4</td><td>Do you have specific expectations for support after launch?</td><td>We'll make sure they're covered (§7.4).</td></tr>
+          <tr><td class="num">5</td><td>How should California tax be calculated: Shopify's standard rate, a percentage up or down, a fixed amount, or a custom formula?</td><td>A percentage or fixed amount is included. A custom formula is quoted separately (§4.3).</td></tr>
         </tbody>
       </table>
     </div>
@@ -328,7 +329,7 @@
     <ul>
       <li><strong>Logo</strong> (vector, such as SVG or AI, if you have it) and your <strong>color palette</strong></li>
       <li><strong>Product photos</strong> and <strong>descriptions</strong> for PRO, PRO PLUS and each accessory</li>
-      <li><strong>The full product list with SKUs and prices</strong> (about 9 products)</li>
+      <li><strong>The full product list with SKUs, options and prices</strong> (about 9 products)</li>
       <li><strong>Text for About and Warranty</strong>, plus FAQ, Shipping &amp; Returns, Privacy and Terms. If you don't have policy text, we can start you from Shopify's templates for you to review.</li>
       <li><strong>Design file and image assets</strong>, if you have them (§1.3)</li>
     </ul>
@@ -379,10 +380,25 @@
     <div class="rollup">
       <div class="sub">Rate: $30/hr</div>
       <div class="big">$1,350 – $1,950</div>
-      <div class="sub">Option 1 — 45h, built from your reference image. Option 2 — 65h (recommended), adds the §1.4 design phase. Monthly Shopify and app costs (§7.2) are paid directly by you. An exact match of your homepage reference is quoted separately once we have the design file (§1.3).</div>
+      <div class="sub">Option 1 — 45h, built from your reference image. Option 2 — 65h (recommended), adds the §1.4 design phase. Monthly Shopify and app costs (§7.2) are paid directly by you. Any additional work, such as extra product setup, custom tax rules or an exact homepage match, is quoted separately before we start (§7.3).</div>
     </div>
 
-    <h3>7.3 After launch</h3>
+    <h3>7.3 Possible additional costs</h3>
+    <p>These aren't in the price above. We'd only add them if your answers or your product list call for them, and we'll always quote the hours before doing the work, at the same $30/hr rate.</p>
+    <div class="table-wrap">
+      <table>
+        <colgroup><col style="width:30%"><col style="width:40%"><col style="width:30%"></colgroup>
+        <thead><tr><th>Item</th><th>When it applies</th><th>How it's billed</th></tr></thead>
+        <tbody>
+          <tr><td class="label-cell">Product import</td><td>Your product list has more variants or options than a standard setup covers (§2)</td><td>Quoted once we've reviewed the list</td></tr>
+          <tr><td class="label-cell">Custom tax rules</td><td>California tax needs a formula beyond a percentage or fixed amount (§4.3)</td><td>Quoted once you describe the formula</td></tr>
+          <tr><td class="label-cell">Exact homepage match</td><td>You send a design file and want the homepage to match it exactly (§1.3)</td><td>Quoted once we have the file. It can go up or down.</td></tr>
+          <tr><td class="label-cell">Alternative configurator</td><td>Angle 3D doesn't meet your needs and another app or approach is needed (§3)</td><td>Quoted once we agree on the alternative</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>7.4 After launch</h3>
     <p>We usually set up a <strong>WhatsApp group</strong> so we can support you quickly before and after handover. Small tweaks that take little effort, we do free of charge. If you later want new features, we quote each one separately based on the work involved, rather than charging a fixed monthly package, so you only pay for what you need. When you're ready to grow beyond the test store, we'll scope that as its own phase.</p>
     <p>Do you have specific expectations for post-launch care? Tell us and we'll make sure they're covered (§5, question 4).</p>
   </section>
