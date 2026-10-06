@@ -174,7 +174,7 @@
       <span>Client: <strong>Shellter</strong> (TJC Inc.), a new truck cap brand selling to US customers in USD</span>
     </div>
     <div class="report-meta">
-      <span>Prepared by: <strong>LitOS/LitGroup</strong> &nbsp;·&nbsp; Date: <strong>October 2, 2026</strong></span>
+      <span>Prepared by: <strong>LitOS/LitGroup</strong> &nbsp;·&nbsp; Date: <strong>October 6, 2026</strong> (updated with your answers)</span>
     </div>
   </header>
 
@@ -185,7 +185,8 @@
     <div class="stat"><span class="n">Ella</span><span class="label">Theme, free through our partnership (§7)</span></div>
   </div>
 
-  <p>You want to start with a small store that you can test and then grow, rather than a full build on day one. On it, customers should be able to learn about the caps and build their own in a 3D configurator. We build the store and its pages, set up a few demo products to show how everything works, and give you a guide so your team can add the remaining products and settings yourselves. This proposal covers that test store in two options and answers two of your questions: what the configurator needs in order to send a build to the cart, and what the store will cost each month. A few points still need your input before we start. They are listed in §5.</p>
+  <p>You want to start with a small store that you can test and then grow, rather than a full build on day one. Customers should be able to learn about the caps, build their own in a 3D configurator and pay for it in the same visit. We build the store and its pages, upload your full product list, set up checkout and California sales tax with you, and give you a guide so your team can run the store after launch.</p>
+  <div class="callout"><strong>What changed since the last version:</strong> a Shop page replaces the Collection page (§1.1). We now upload all of your products, not just a few demos (§2). The configurator section now recommends one route (§3). Card payments, refundable pre-order deposits and your California tax setup are covered in §4. After-launch support is in §7.3. The price is unchanged.</div>
 
   <!-- ================= 1. WHAT THE TEST STORE INCLUDES ================= -->
   <section class="section">
@@ -194,9 +195,10 @@
     <h3>1.1 Pages</h3>
     <ul>
       <li><strong>Home</strong>, based on your reference image (§1.3)</li>
-      <li><strong>Product pages</strong> for PRO, PRO PLUS and the add-ons</li>
-      <li><strong>About, Contact, FAQ, Shipping &amp; Returns, Warranty, Privacy, Terms</strong></li>
-      <li>A <strong>Collection page</strong> listing all caps and add-ons is not in the list you sent. Tell us whether you want one (§5, question 1).</li>
+      <li><strong>Shop</strong>: one simple page with three sections, <strong>PRO</strong>, <strong>PRO PLUS</strong> and <strong>Accessories</strong>. Each package has a <strong>Build Your Cap</strong> button that opens the configurator. Accessories can be added to the cart directly, without going through the configurator. There's no separate Collection page, since customers choose their truck inside the configurator.</li>
+      <li><strong>Product pages</strong> for PRO, PRO PLUS and each accessory</li>
+      <li><strong>About</strong> and <strong>Warranty</strong>: we come up with the layout and design them to match the homepage and product pages. The test version has no animation. You send us the text.</li>
+      <li><strong>Contact, FAQ, Shipping &amp; Returns, Privacy, Terms</strong></li>
     </ul>
 
     <h3>1.2 Market and devices</h3>
@@ -227,61 +229,80 @@
   <!-- ================= 2. PRODUCTS ================= -->
   <section class="section">
     <div class="section-head"><span class="section-num">2</span><h2>How the products are set up</h2></div>
-    <p>A Shopify product can have <strong>at most three options</strong>, and your caps need exactly three, so each package fits on one product:</p>
+    <p>Your list is about 9 products. Each package is its own Shopify product with two options, truck and bed length, which stays well within Shopify's limit of three options per product:</p>
     <div class="table-wrap">
       <table>
         <colgroup><col style="width:11rem"><col></colgroup>
         <thead><tr><th>Product</th><th>Options (variants)</th></tr></thead>
         <tbody>
-          <tr><td class="label-cell">Shellter PRO</td><td><strong>Fitment:</strong> Ford F-150 · Chevy Silverado / GMC Sierra 1500 · Ram 1500 · Toyota Tacoma<br><strong>Bed length:</strong> the lengths available for each truck<br>Each fitment and bed-length combination gets its own SKU and price.</td></tr>
+          <tr><td class="label-cell">Shellter PRO</td><td><strong>Truck:</strong> Ford F-150 · Chevy Silverado / GMC Sierra 1500 · Ram 1500 · Toyota Tacoma<br><strong>Bed length:</strong> the lengths available for each truck<br>Each truck and bed-length combination gets its own SKU and price.</td></tr>
           <tr><td class="label-cell">Shellter PRO PLUS</td><td>Same structure as PRO</td></tr>
-          <tr><td class="label-cell">Add-ons</td><td>Shelf panel, vertical divider, drawer, electric T-lock, front + rear glass, glass protection panels. Each is a separate product with its own SKU and price, so it can be sold alone or added by the configurator.</td></tr>
+          <tr><td class="label-cell">Accessories (6)</td><td>Shelf panel, vertical divider, drawer, electric T-lock, front + rear glass, glass protection panel. Each is a separate product with its own SKU and price, so it can be bought on its own from the Shop page or added by the configurator.</td></tr>
         </tbody>
       </table>
     </div>
-    <p>Each package is its own product, so the two options used are fitment and bed length. If you'd rather show PRO and PRO PLUS on one page, "Package" becomes the third option. Both setups stay within Shopify's limit.</p>
-    <div class="callout"><strong>Demo products only:</strong> we set up a few products as working examples, such as one cap package with its fitment and bed-length variants and a couple of add-ons. Your team then adds the remaining products, SKUs and prices by following our operations guide (§7.1).</div>
+    <p>Customers reach PRO and PRO PLUS through the configurator, but both still exist as full Shopify products, because they're what the configurator puts in the cart.</p>
+    <div class="callout"><strong>We upload all of them:</strong> once you send the full list with SKUs and prices, we create every product and variant. The prices in Shopify are the ones customers pay, so they come from your list, not from the current configurator. Our guide (§7.1) covers adding and editing products after launch.</div>
   </section>
 
   <!-- ================= 3. CONFIGURATOR → CART ================= -->
   <section class="section">
-    <div class="section-head"><span class="section-num">3</span><h2>"Build Your Cap": sending a build to the cart</h2></div>
-    <p>The goal is that the customer finishes a build, clicks once, and lands in the Shopify cart with the right package and add-ons at the right total, without picking anything again. There are two ways to get there, depending on whether you already have a configurator you want to keep.</p>
+    <div class="section-head"><span class="section-num">3</span><h2>"Build Your Cap": from configurator to checkout</h2></div>
+    <p>We know this is the most important part for you. The flow you want: the customer clicks <strong>Build Your Cap</strong> on the website, chooses their truck and builds the cap, and then the chosen package and options (by SKU) go into the Shopify cart at the correct total, ready to pay.</p>
 
-    <h3>3.1 If you already have a configurator: what it needs</h3>
-    <p>Your configurator already produces a SKU list and a total on its Review screen, so most of the work is done. To send that build to Shopify, it needs four things:</p>
-    <ol class="plain">
-      <li><strong>The same SKUs as Shopify.</strong> Every SKU the configurator outputs must exist as a product or variant in Shopify with the identical SKU. Your team keeps these in sync when adding products, following our guide.</li>
-      <li><strong>Its "Add to cart" button must open a Shopify cart link.</strong> Shopify supports a cart link that holds several items at once, in the form <code>your-store.com/cart/{variant_id}:1,{variant_id}:1,…</code>. We'll show you where to find each variant ID in your Shopify admin, and the configurator builds this link from the customer's selection. This works even if the configurator runs on a different website.</li>
-      <li><strong>Shopify sets the price.</strong> The cart total is calculated from the prices stored in Shopify, not from the number on the configurator's screen. Both must come from the same price list.</li>
-      <li><strong>Optional: a build summary.</strong> The link can also carry a short summary of the build (for example, the color or a build ID), which then shows on the order so your team can see exactly what was configured.</li>
-    </ol>
-    <p>On our side, we connect the Build Your Cap button and demo the hand-off with the demo products. The change to the configurator's own button is made by whoever maintains it. If that's you or your developer, we'll send the exact specification. If you'd like us to make the change, we'll need access to its code.</p>
+    <h3>3.1 Your current configurator</h3>
+    <p>We can embed your <a href="https://app.w3d.cn/3d-truck-cap-configurator/v1/index.html" target="_blank" rel="noopener">existing configurator</a> in the store. But a configurator hosted outside Shopify can't connect to the Shopify cart out of the box. With a simple embed, customers could build their cap but couldn't add it to the cart or check out.</p>
+    <p>For the full flow to work (configure, add to cart, check out), the configurator needs to be a third-party app built for Shopify, so that it connects directly to the cart and checkout.</p>
 
-    <h3>3.2 If you don't have one yet: Angle 3D Configurator</h3>
-    <p><strong><a href="https://apps.shopify.com/angle-3d-configurator" target="_blank" rel="noopener">Angle 3D Configurator</a></strong> runs inside Shopify and links each choice directly to a Shopify variant, so the cart price is always correct. It's rated 5.0 from 93 reviews. Plans start at <strong>$39/mo</strong> (Basic: 10 products, 250 variants per product), then $69/mo (40 products) and $99/mo (100 products), each with a 14-day free trial. Two packages plus the add-ons should fit within Basic. The app shows your 3D models but doesn't make them. You supply the models, or Angle 3D's artists can create them for an extra fee.</p>
-    <div class="callout"><strong>Before we pick:</strong> tell us whether you already have a configurator you want to keep, or whether Angle 3D fits what you have in mind. If neither, send us a description or an example of the experience you want and we'll find the right app (§5, question 2).</div>
+    <h3>3.2 Our recommendation: Angle 3D Configurator</h3>
+    <p><strong><a href="https://apps.shopify.com/angle-3d-configurator" target="_blank" rel="noopener">Angle 3D Configurator</a></strong> runs inside Shopify. Each choice in the 3D builder is linked to a Shopify variant, so the package and options land in the cart at the prices stored in Shopify. It's rated 5.0 from 93 reviews, and every plan has a 14-day free trial. The Basic plan is <strong>$39/mo</strong> for up to 10 products, which fits your list. Larger plans are $69/mo (40 products) and $99/mo (100 products).</p>
+    <p>If the 3D models from your current configurator can be exported (for example as GLB files), they may be reusable. Angle's own 3D team also offers modeling services.</p>
+    <p>On our side, we install the app, link its options to your PRO, PRO PLUS and accessory variants, connect the Build Your Cap buttons, and test that every build reaches the cart at the right total.</p>
+    <div class="callout"><strong>Could you take a look?</strong> Let us know whether Angle 3D meets your needs. If it falls short, tell us which requirements it misses and we'll look at alternatives (§5, question 1).</div>
   </section>
 
-  <!-- ================= 4. SALES TAX ================= -->
+  <!-- ================= 4. CHECKOUT & TAX ================= -->
   <section class="section">
-    <div class="section-head"><span class="section-num">4</span><h2>California sales tax</h2></div>
-    <p>We recommend <strong>Shopify Tax</strong>, which works out the correct California rate for each delivery address. Collection only starts after your California seller's permit is entered in Shopify. Shopify Tax is free for your first <strong>$100,000</strong> in lifetime sales. After that, the fee is 0.35% of each order where tax is collected, up to $0.99 per order.</p>
-    <p>You set it up in your Shopify admin, and our guide walks you through it. To write that guide for your case, we need a few answers (§5, question 3). Do you collect only in California, or in other states as well? Do you have a permit number yet? Should shipping charges be taxed?</p>
+    <div class="section-head"><span class="section-num">4</span><h2>Checkout, deposits and sales tax</h2></div>
+
+    <h3>4.1 Card payments</h3>
+    <p>You set up <strong>Shopify Payments</strong> under TJC Inc., since it needs your company and bank details. We guide you through each step. Once it's active, we run test orders to check the full checkout.</p>
+
+    <h3>4.2 Refundable pre-order deposits</h3>
+    <p>Your proposed flow:</p>
+    <ol class="plain">
+      <li>A small, refundable <strong>reservation fee</strong>, charged when the order is placed</li>
+      <li>A larger <strong>deposit</strong> charged later, still refundable until the cap ships from the factory</li>
+      <li>The <strong>remaining balance</strong>, paid before delivery</li>
+    </ol>
+    <p>Shopify can support this model, but it needs a pre-order app. We recommend <strong><a href="https://apps.shopify.com/preproduct" target="_blank" rel="noopener">PreProduct Pre-Order</a></strong> (rated 4.9 from 108 reviews). It supports deposit-based pre-orders and customizable emails at each payment stage. It collects the remaining balance by charging the saved card later or by sending a payment link. Refunds, full or partial (such as just the reservation fee or the deposit), are handled directly in your Shopify admin.</p>
+    <p>One limitation: Shopify's pre-order checkout needs <strong>Shopify Payments or PayPal Express</strong>. Shop Pay, Apple Pay and Google Pay aren't available for pre-orders.</p>
+    <p>This is the solution we're proposing for your exact 3-step flow. When we reach that stage, we'll test it on your store, since it also depends on your payment settings.</p>
+
+    <h3>4.3 California sales tax</h3>
+    <p>We keep this simple for the test store, as you asked:</p>
+    <ul>
+      <li><strong>Shopify Tax</strong> calculates the correct California rate for each delivery address.</li>
+      <li>Tax is collected <strong>only on orders shipped to California</strong>, under your California seller's permit.</li>
+      <li>No tax is collected in other states for now.</li>
+      <li>No tax-exempt customer accounts. You handle exempt customers manually.</li>
+      <li>Your accountant confirms the final settings before launch.</li>
+    </ul>
+    <p>Shopify Tax is free for your first <strong>$100,000</strong> in lifetime sales. After that, the fee is 0.35% of each order where tax is collected, up to $0.99 per order.</p>
   </section>
 
   <!-- ================= 5. OPEN QUESTIONS ================= -->
   <section class="section">
-    <div class="section-head"><span class="section-num">5</span><h2>Questions before we start</h2></div>
+    <div class="section-head"><span class="section-num">5</span><h2>What's still open</h2></div>
     <div class="table-wrap">
       <table>
         <colgroup><col style="width:2.6rem"><col><col></colgroup>
         <thead><tr><th>#</th><th>Question</th><th>Why it matters</th></tr></thead>
         <tbody>
-          <tr><td class="num">1</td><td>Do you want a Collection page (all caps and add-ons on one page)?</td><td>It isn't in your page list. It's small to add, but we'd like to confirm before we design.</td></tr>
-          <tr><td class="num">2</td><td>Do you already have a 3D configurator, or should we use Angle 3D (§3)?</td><td>This decides between the cart-link hand-off (§3.1) and an in-Shopify app (§3.2), as well as the monthly cost.</td></tr>
-          <tr><td class="num">3</td><td>Sales tax: California only or other states as well? Do you have a seller's permit number yet? Should shipping be taxed?</td><td>Shopify Tax can't start collecting until this is set (§4).</td></tr>
-          <tr><td class="num">4</td><td>Do you have the homepage design file and image assets?</td><td>With them, we match your reference exactly and confirm the final price. Without them, we recreate it ourselves in the same style (§1.3).</td></tr>
+          <tr><td class="num">1</td><td>Does Angle 3D Configurator meet your needs? If not, which requirements does it miss?</td><td>This is the heart of the store (§3), so we want to settle it before the build starts.</td></tr>
+          <tr><td class="num">2</td><td>On what date will you send the product list (SKUs and prices) and the content (photos, logo, descriptions, color palette)?</td><td>The timeline in §6 starts from these.</td></tr>
+          <tr><td class="num">3</td><td>Do you have the homepage design file and image assets?</td><td>With them, we match your reference exactly and confirm the final price. Without them, we recreate it ourselves in the same style (§1.3).</td></tr>
+          <tr><td class="num">4</td><td>Do you have specific expectations for support after launch?</td><td>We'll make sure they're covered (§7.3).</td></tr>
         </tbody>
       </table>
     </div>
@@ -296,7 +317,8 @@
         <thead><tr><th>Phase</th><th>Duration</th><th>What happens</th></tr></thead>
         <tbody>
           <tr><td class="label-cell">Design<br>(Option 2 only)</td><td>~3 working days + up to 3 feedback rounds</td><td>Homepage and product page design, desktop and mobile. You review and we revise. The sooner you approve, the sooner the build starts.</td></tr>
-          <tr><td class="label-cell">Build</td><td>~2 weeks</td><td>Store setup, pages, demo products, configurator hand-off demo, QA. In Option 2 it starts once the design is approved.</td></tr>
+          <tr><td class="label-cell">Build</td><td>~2 weeks</td><td>Store setup, pages, product upload, configurator to cart, checkout and tax setup, QA. In Option 2 it starts once the design is approved.</td></tr>
+          <tr><td class="label-cell">Pre-orders</td><td>When you're ready to take them</td><td>PreProduct setup and testing of your 3-step deposit flow (§4.2)</td></tr>
           <tr><td class="label-cell">Handover</td><td>At launch</td><td>A written guide to running the store, plus a walkthrough (§7)</td></tr>
         </tbody>
       </table>
@@ -305,9 +327,9 @@
     <h3>Content to send us</h3>
     <ul>
       <li><strong>Logo</strong> (vector, such as SVG or AI, if you have it) and your <strong>color palette</strong></li>
-      <li><strong>Product photos</strong> and <strong>descriptions</strong> for PRO, PRO PLUS and each add-on</li>
-      <li><strong>SKUs and prices for the demo products</strong>. Your team adds the rest after handover.</li>
-      <li><strong>Text for About, FAQ, Shipping &amp; Returns, Warranty, Privacy and Terms</strong>. If you don't have it, we can start you from Shopify's policy templates for you to review.</li>
+      <li><strong>Product photos</strong> and <strong>descriptions</strong> for PRO, PRO PLUS and each accessory</li>
+      <li><strong>The full product list with SKUs and prices</strong> (about 9 products)</li>
+      <li><strong>Text for About and Warranty</strong>, plus FAQ, Shipping &amp; Returns, Privacy and Terms. If you don't have policy text, we can start you from Shopify's templates for you to review.</li>
       <li><strong>Design file and image assets</strong>, if you have them (§1.3)</li>
     </ul>
   </section>
@@ -324,12 +346,13 @@
         <tbody>
           <tr><td>Store setup: theme install and configuration, navigation, store settings</td><td class="num">4h</td><td class="num">4h</td></tr>
           <tr><td>Homepage built from your reference (§1.3): hero with Build Your Cap, Fitment &amp; Models grid, Key Features, footer</td><td class="num">10h</td><td class="num">10h</td></tr>
-          <tr><td>Demo products (§2): a few example products with fitment and bed-length variants and add-ons, product page template</td><td class="num">9h</td><td class="num">9h</td></tr>
-          <tr><td>Content pages: About, Contact, FAQ, Shipping &amp; Returns, Warranty, Privacy, Terms</td><td class="num">5h</td><td class="num">5h</td></tr>
-          <tr><td>3D configurator to cart (§3): Build Your Cap button, hand-off demo with the demo products</td><td class="num">7h</td><td class="num">7h</td></tr>
-          <tr><td>Sales tax (§4): step-by-step setup guide</td><td class="num">2h</td><td class="num">2h</td></tr>
-          <tr><td>QA: pages on mobile and desktop, cart and checkout with the demo products</td><td class="num">5h</td><td class="num">5h</td></tr>
-          <tr><td>Store operations guide and walkthrough, so your team can add the remaining products, SKUs and prices and keep them in sync with the configurator</td><td class="num">3h</td><td class="num">3h</td></tr>
+          <tr><td>Products (§2): upload of the full list (about 9 products) with truck and bed-length variants, product page template</td><td class="num">9h</td><td class="num">9h</td></tr>
+          <tr><td>Shop page (PRO, PRO PLUS, Accessories) and content pages: About and Warranty designed to match, Contact, FAQ, Shipping &amp; Returns, Privacy, Terms</td><td class="num">5h</td><td class="num">5h</td></tr>
+          <tr><td>3D configurator to cart (§3): Angle 3D install, options linked to variants, Build Your Cap buttons, cart total tests</td><td class="num">5h</td><td class="num">5h</td></tr>
+          <tr><td>Checkout (§4.1–4.2): Shopify Payments guidance, test orders, PreProduct deposit setup and test</td><td class="num">3h</td><td class="num">3h</td></tr>
+          <tr><td>Sales tax (§4.3): Shopify Tax for California only</td><td class="num">1h</td><td class="num">1h</td></tr>
+          <tr><td>QA: pages on mobile and desktop, cart and checkout</td><td class="num">5h</td><td class="num">5h</td></tr>
+          <tr><td>Store operations guide and walkthrough: products and prices, orders, pre-orders and refunds</td><td class="num">3h</td><td class="num">3h</td></tr>
           <tr><td>Design phase (§1.4): homepage and product page design for desktop and mobile, color and type system, up to 3 feedback rounds</td><td class="num">—</td><td class="num">20h</td></tr>
           <tr class="total"><td><strong>Total</strong></td><td class="num">45h</td><td class="num">65h</td></tr>
         </tbody>
@@ -343,10 +366,12 @@
         <colgroup><col style="width:38%"><col style="width:27%"><col style="width:35%"></colgroup>
         <thead><tr><th>Item</th><th>Cost</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>Shopify plan: <strong>Basic</strong> is enough for a test store</td><td>$39/mo, or $29/mo billed yearly</td><td>US pricing. Shopify sets it by country, so check it at sign-up. Grow is $105/mo if you need it later.</td></tr>
+          <tr><td>Shopify plan: <strong>Basic</strong>, the lowest US plan that covers everything in this proposal</td><td>$39/mo, or $29/mo billed yearly</td><td>US pricing, so check it at sign-up. Grow is $105/mo if you need it later.</td></tr>
+          <tr><td>Shopify Payments (§4.1)</td><td>No monthly fee</td><td>Standard card fee per transaction, shown for your plan at sign-up</td></tr>
           <tr><td>Ella theme license, through the LitOS/HaloThemes partnership</td><td>Free</td><td>—</td></tr>
-          <tr><td>3D configurator: Angle 3D, only if you don't have your own (§3.2)</td><td>$39 – $99/mo</td><td>Depends on the number of products</td></tr>
-          <tr><td>Shopify Tax (§4)</td><td>Free up to $100k lifetime sales, then 0.35% per taxed order</td><td>Capped at $0.99 per order</td></tr>
+          <tr><td>Angle 3D Configurator (§3.2)</td><td>$39/mo (Basic)</td><td>Up to 10 products. 14-day free trial.</td></tr>
+          <tr><td>PreProduct (§4.2), once you take pre-orders</td><td>Free + 5% of pre-order revenue, or $59.99/mo</td><td>The $59.99 plan has no commission on the first $5,000 of monthly pre-order revenue, then 0.5%. With your price points it's usually the cheaper choice.</td></tr>
+          <tr><td>Shopify Tax (§4.3)</td><td>Free up to $100k lifetime sales, then 0.35% per taxed order</td><td>Capped at $0.99 per order</td></tr>
         </tbody>
       </table>
     </div>
@@ -358,27 +383,27 @@
     </div>
 
     <h3>7.3 After launch</h3>
-    <p>Small changes and support after launch, such as adding products, adjusting a page or tweaking a price rule, are billed by the hour at <strong>$35/hr</strong>, our rate for jobs under 20 hours. You'll also have the operations guide, so you can update products and prices yourself. When you're ready to expand beyond the test store, we'll scope that as its own phase.</p>
+    <p>We usually set up a <strong>WhatsApp group</strong> so we can support you quickly before and after handover. Small tweaks that take little effort, we do free of charge. If you later want new features, we quote each one separately based on the work involved, rather than charging a fixed monthly package, so you only pay for what you need. When you're ready to grow beyond the test store, we'll scope that as its own phase.</p>
+    <p>Do you have specific expectations for post-launch care? Tell us and we'll make sure they're covered (§5, question 4).</p>
   </section>
 
   <!-- ================= 8. WHO CONFIGURES WHAT ================= -->
   <section class="section">
     <div class="section-head"><span class="section-num">8</span><h2>Accounts and who configures what</h2></div>
     <p>The store is opened under <strong>TJC Inc.</strong>, and you keep full admin ownership. You add us as a <strong>collaborator or staff member</strong>, and you can remove that access whenever you like.</p>
-    <p><strong>We build the store, the pages and a few demo products. Your team completes the catalogue and the store settings, following our guide.</strong> Sales tax uses your company's seller's permit, which belongs with the account holder, not an agency.</p>
+    <p><strong>We build the store, upload your products and set up checkout and tax with you.</strong> Payments and sales tax use your company's bank details and seller's permit, which belong with the account holder, not an agency.</p>
     <div class="table-wrap">
       <table>
         <colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>
         <thead><tr><th>Item</th><th>You do</th><th>We do</th></tr></thead>
         <tbody>
           <tr><td class="label-cell">Shopify account</td><td>Open the store under TJC Inc., choose the plan, and add us as collaborator or staff</td><td>Tell you which plan and permissions we need</td></tr>
-          <tr><td class="label-cell">Products and prices</td><td>Add the remaining products, SKUs and prices, and keep them matching the configurator</td><td>Set up the demo products as examples and write the step-by-step guide</td></tr>
-          <tr><td class="label-cell">California sales tax</td><td>Enter your seller's permit and choose where you collect</td><td>Write a step-by-step guide for setting up Shopify Tax for your case</td></tr>
+          <tr><td class="label-cell">Products and prices</td><td>Send the full list with SKUs and prices</td><td>Upload every product and variant, and cover later edits in the guide</td></tr>
+          <tr><td class="label-cell">Shopify Payments</td><td>Activate it with your company and bank details</td><td>Guide you through it and run test orders</td></tr>
+          <tr><td class="label-cell">Pre-order deposits</td><td>Choose the PreProduct plan</td><td>Set up and test the 3-step deposit flow</td></tr>
+          <tr><td class="label-cell">California sales tax</td><td>Enter your seller's permit. Your accountant confirms the settings.</td><td>Configure Shopify Tax to collect on California orders only</td></tr>
         </tbody>
       </table>
     </div>
   </section>
-
-  <p>Happy to walk through any of this on a call if that's easier than reading it.</p>
-
 </div>
