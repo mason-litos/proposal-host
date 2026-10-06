@@ -136,7 +136,7 @@
   tbody tr { border-bottom: 1px solid var(--paper-line); }
   tbody tr:last-child { border-bottom: none; }
   td { padding: 0.8rem 0.9rem; vertical-align: top; font-size: 0.88rem; overflow-wrap: break-word; }
-  td.label-cell { font-weight: 700; color: var(--ink); white-space: nowrap; }
+  td.label-cell { font-weight: 700; color: var(--ink); }
   .num { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
   tr.total td { font-weight: 700; background: var(--accent-soft); color: var(--accent-ink); }
   tr.strike td { color: var(--ink-faint); opacity: 0.65; }
@@ -205,7 +205,7 @@
     <p>Hours below are the core estimate. Lines marked <strong>(§4)</strong> have an option that changes them.</p>
     <div class="table-wrap">
       <table>
-        <colgroup><col style="width:10rem"><col><col style="width:5rem"></colgroup>
+        <colgroup><col style="width:11rem"><col><col style="width:5rem"></colgroup>
         <thead><tr><th>Section</th><th>What's there today and what we build</th><th>Hours</th></tr></thead>
         <tbody>
           <tr><td class="label-cell">Homepage</td><td>Hero slider, the 8 product category tiles, "Special contents" and "Product contents" tiles, latest news and the footer sitemap (§4: −2h with Horizon's default tiles)</td><td class="num">12h</td></tr>
@@ -316,7 +316,21 @@
         </tbody>
       </table>
     </div>
-    <p style="font-size:0.86rem;color:var(--ink-muted);"><strong>Rate basis:</strong> both totals are over 200h, which is $20/hr on our standard rate card.</p>
+    <h3>Rate card</h3>
+    <p>Our standard project rates for design, custom theme development and app integration. The rate is set by the total hours of the project.</p>
+    <div class="table-wrap">
+      <table>
+        <colgroup><col><col style="width:9rem"></colgroup>
+        <thead><tr><th>Estimated hours</th><th>Hourly rate (USD)</th></tr></thead>
+        <tbody>
+          <tr><td>0–20h</td><td class="num">$35/hr</td></tr>
+          <tr><td>21–100h</td><td class="num">$30/hr</td></tr>
+          <tr><td>101–200h</td><td class="num">$25/hr</td></tr>
+          <tr class="total"><td>Over 200h (this project: core 212h, full 317h)</td><td class="num">$20/hr</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.86rem;color:var(--ink-muted);"><strong>Rate basis:</strong> both totals are over 200h, so the whole project is billed at $20/hr.</p>
 
     <h3>Not included / budget separately</h3>
     <div class="table-wrap">
