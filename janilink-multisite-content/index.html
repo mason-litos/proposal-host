@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="LitOS/LitGroup">
-<meta name="description" content="Custom Shopify app to rewrite and differentiate content across tidywarehouse.com, cleaningdomain.com and janilink.com.">
+<meta name="description" content="Custom Shopify app to rewrite and differentiate content across cleaningdomain.com and janilink.com, using tidywarehouse.com as the unchanged source site.">
 <title>Janilink Multi-Site Content Proposal</title>
 <style>
   :root {
@@ -182,7 +182,7 @@
     <span class="eyebrow">Shopify · Multi-Site Content Differentiation</span>
     <h1>Janilink — Multi-Site Content Differentiation Proposal</h1>
     <div class="report-meta">
-      <span>Sites: <strong><a href="https://tidywarehouse.com/" target="_blank" rel="noopener">tidywarehouse.com</a></strong>, <strong><a href="https://cleaningdomain.com/" target="_blank" rel="noopener">cleaningdomain.com</a></strong>, <strong>test.janilink.com</strong> (to be connected to janilink.com), plus future sites built the same way</span>
+      <span>Scope: update <strong><a href="https://cleaningdomain.com/" target="_blank" rel="noopener">cleaningdomain.com</a></strong> and <strong>test.janilink.com</strong> (to be connected to janilink.com). <strong><a href="https://tidywarehouse.com/" target="_blank" rel="noopener">tidywarehouse.com</a></strong> stays as the original source site.</span>
     </div>
     <div class="report-meta">
       <span>Prepared by: <strong>LitOS/LitGroup</strong> &nbsp;·&nbsp; Date: <strong>October 9, 2026</strong></span>
@@ -190,12 +190,12 @@
   </header>
 
   <div class="stat-row">
-    <div class="stat"><span class="n hero">$3,150</span><span class="label">Total estimate (§7)</span></div>
-    <div class="stat"><span class="n">90h</span><span class="extra">$35/hr</span><span class="label">Custom app build and first run on 3 sites</span></div>
-    <div class="stat"><span class="n">About 5 weeks</span><span class="label">Build the app and complete the first run on all three sites</span></div>
+    <div class="stat"><span class="n hero">$2,625</span><span class="label">Total estimate (§7)</span></div>
+    <div class="stat"><span class="n">75h</span><span class="extra">$35/hr</span><span class="label">Custom app build and first run on 2 sites</span></div>
+    <div class="stat"><span class="n">About 4 weeks</span><span class="label">Build the app and complete the first run on both update sites</span></div>
   </div>
 
-  <p>You want each store to read as an independent business, with its own product, category and page content, so the sites are not seen as duplicates of each other. This document covers what we found in the three catalogs, the content we rewrite, the Shopify app we build to do it, and what it costs. The same app is reused for every new site.</p>
+  <p>You want Cleaning Domain and Janilink to read as independent businesses, with their own product, category and page content, while Tidy Warehouse remains the unchanged source site. This document covers what we found in the three catalogs, the content we rewrite on the two update sites, the Shopify app we build to do it, and what it costs. The same app is reused for every new site.</p>
 
   <section class="section">
     <div class="section-head"><span class="section-num">1</span><h2>What we found in the catalogs</h2></div>
@@ -238,20 +238,21 @@
   </section>
 
   <section class="section">
-    <div class="section-head"><span class="section-num">2</span><h2>Content we rewrite for each site</h2></div>
+    <div class="section-head"><span class="section-num">2</span><h2>Content we rewrite on the two update sites</h2></div>
+    <p>Tidy Warehouse keeps its current content. The rewrite scope is Cleaning Domain and Janilink.</p>
     <div class="table-wrap">
       <table>
         <colgroup><col style="width:11rem"><col></colgroup>
         <thead><tr><th>Content</th><th>What we do</th></tr></thead>
         <tbody>
-          <tr><td class="label-cell">Product titles</td><td>Rewrite in each site's own style. Model numbers, sizes, capacities and manufacturer brands (e.g. 3M, Tornado) stay exactly as they are.</td></tr>
-          <tr><td class="label-cell">Existing descriptions</td><td>Rewrite in each site's voice, keeping formatting, specifications and tables</td></tr>
+          <tr><td class="label-cell">Product titles</td><td>Rewrite for Cleaning Domain and Janilink in each site's own style. Model numbers, sizes, capacities and manufacturer brands (e.g. 3M, Tornado) stay exactly as they are.</td></tr>
+          <tr><td class="label-cell">Existing descriptions</td><td>Rewrite in each update site's voice, keeping formatting, specifications and tables</td></tr>
           <tr><td class="label-cell">Missing descriptions (~58%)</td><td>Write new ones only from data already in the store (title, type, tags, specs). No facts are added. These products are tagged for closer review.</td></tr>
           <tr><td class="label-cell">SEO title &amp; meta</td><td>Unique for every product</td></tr>
           <tr><td class="label-cell">Collections</td><td>Rename all ~315 with a site-specific vocabulary and write a description for each (none exist today). Menus are updated to match.</td></tr>
           <tr><td class="label-cell">Pages (~380 per site)</td><td>Rewrite the text, keeping layout and links intact</td></tr>
           <tr><td class="label-cell">Image alt text</td><td>Unique, descriptive alt text for every product image. Image files are not changed.</td></tr>
-          <tr><td class="label-cell">Vendor field</td><td>Replace "Janilink" / "Tidywarehouse" with the manufacturer brand or the site's own name (§4, question 4)</td></tr>
+          <tr><td class="label-cell">Vendor field</td><td>On the two update sites, replace "Janilink" / "Tidywarehouse" with the manufacturer brand or the site's own name (§4, question 4)</td></tr>
           <tr><td class="label-cell">Product URLs</td><td>Changed on sites that aren't live yet. On live sites only with your approval, and always with 301 redirects.</td></tr>
           <tr><td class="label-cell">Contact, About, home page, footer</td><td>Company details replaced with the ones you give us, and the surrounding text rewritten</td></tr>
         </tbody>
@@ -261,7 +262,7 @@
 
   <section class="section">
     <div class="section-head"><span class="section-num">3</span><h2>The app we build</h2></div>
-    <p>We build a custom Shopify app, installed on every store, that runs the whole process and is reused for each new site.</p>
+    <p>We build a custom Shopify app, installed on the two update stores, that runs the whole process and is reused for each new site.</p>
     <div class="table-wrap">
       <table>
         <colgroup><col style="width:2.6rem"><col style="width:10rem"><col></colgroup>
@@ -280,8 +281,8 @@
     </div>
     <h3>Deliverables</h3>
     <ul>
-      <li>The app, installed and configured on all three stores.</li>
-      <li>Rewritten and approved content published on all three sites.</li>
+      <li>The app, installed and configured on Cleaning Domain and Janilink.</li>
+      <li>Rewritten and approved content published on the two update sites. Tidy Warehouse remains unchanged.</li>
       <li>A short operating guide: reviewing content, adding new products, onboarding a new site.</li>
     </ul>
   </section>
@@ -293,8 +294,8 @@
         <colgroup><col style="width:2.6rem"><col><col></colgroup>
         <thead><tr><th>#</th><th>Question</th><th>Why it matters</th></tr></thead>
         <tbody>
-          <tr><td class="num">1</td><td>Company details for each site: business name, email, phone, address, short About text</td><td>Needed for the Contact, About, home page and footer. We don't invent these.</td></tr>
-          <tr><td class="num">2</td><td>Should tidywarehouse.com and cleaningdomain.com keep their product URLs?</td><td>We recommend keeping them and changing URLs only on janilink.com, to avoid ranking loss (§6)</td></tr>
+          <tr><td class="num">1</td><td>Company details for Cleaning Domain and Janilink: business name, email, phone, address, short About text</td><td>Needed for the Contact, About, home page and footer. We don't invent these.</td></tr>
+          <tr><td class="num">2</td><td>Should cleaningdomain.com keep its product URLs?</td><td>We recommend keeping them and changing URLs only on janilink.com, to avoid ranking loss (§6)</td></tr>
           <tr><td class="num">3</td><td>Should the Vendor field show the manufacturer brand or the site name?</td><td>We recommend the manufacturer brand</td></tr>
           <tr><td class="num">4</td><td>Who on your side reviews and approves content?</td><td>Reading everything takes about 10–12 hours per site. See the recommendation below.</td></tr>
           <tr><td class="num">5</td><td>An OpenAI API key in your own account</td><td>API usage is billed directly to you (§6, note 7)</td></tr>
@@ -344,21 +345,21 @@
         <thead><tr><th>Component</th><th>Hours</th></tr></thead>
         <tbody>
           <tr><td>App foundation: multi-store install, site profiles, catalog sync and backup (§3, steps 1–2)</td><td class="num">16h</td></tr>
-          <tr><td>AI generation for all content types in §2, including SEO fields, alt text, Vendor and URL redirects (§3, step 3)</td><td class="num">22h</td></tr>
-          <tr><td>Uniqueness check across sites (§3, step 4)</td><td class="num">8h</td></tr>
-          <tr><td>Review screen (§3, step 5)</td><td class="num">18h</td></tr>
-          <tr><td>Publish, rollback, menu update, new-product queue (§3, steps 6–7)</td><td class="num">12h</td></tr>
-          <tr><td>First run on all 3 sites, QA, company details, operating guide</td><td class="num">14h</td></tr>
-          <tr class="total"><td><strong>Total</strong></td><td class="num">90h</td></tr>
+          <tr><td>AI generation for all content types in §2, including SEO fields, alt text, Vendor and URL redirects (§3, step 3)</td><td class="num">18h</td></tr>
+          <tr><td>Uniqueness check across sites (§3, step 4)</td><td class="num">6h</td></tr>
+          <tr><td>Review screen (§3, step 5)</td><td class="num">16h</td></tr>
+          <tr><td>Publish, rollback, menu update, new-product queue (§3, steps 6–7)</td><td class="num">10h</td></tr>
+          <tr><td>First run on 2 update sites, QA, company details, operating guide</td><td class="num">9h</td></tr>
+          <tr class="total"><td><strong>Total</strong></td><td class="num">75h</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:0.86rem;color:var(--ink-muted);"><strong>Rate basis:</strong> 90h of custom app development falls in the 21–100h bracket, which is $35/hr on our standard rate card.</p>
+    <p style="font-size:0.86rem;color:var(--ink-muted);"><strong>Rate basis:</strong> 75h of custom app development falls in the 21–100h bracket, which is $35/hr on our standard rate card.</p>
 
     <div class="rollup">
       <div class="sub">Rate: $35/hr</div>
-      <div class="big">$3,150</div>
-      <div class="sub">90h: app build and first run on 3 sites. Excludes your review time, OpenAI API usage and the items in §5.</div>
+      <div class="big">$2,625</div>
+      <div class="sub">75h: app build and first run on 2 update sites. Excludes your review time, OpenAI API usage and the items in §5.</div>
     </div>
   </section>
 
@@ -369,7 +370,7 @@
         <colgroup><col><col style="width:12rem"></colgroup>
         <thead><tr><th>Stage</th><th>Duration</th></tr></thead>
         <tbody>
-          <tr><td>Build the app and complete the first run on all three sites</td><td>About 5 weeks</td></tr>
+          <tr><td>Build the app and complete the first run on the two update sites</td><td>About 4 weeks</td></tr>
           <tr><td>Each additional site</td><td>About 2–3 working days</td></tr>
         </tbody>
       </table>
