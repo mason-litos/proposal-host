@@ -251,13 +251,20 @@
       <li>Every option the customer picked (vehicle, colors, glass, lock, side boxes, drawer and so on) is saved on the cart line, the order and the order emails.</li>
       <li>Every new order is checked automatically. If the recorded options don't match the amount paid, the order is tagged and held for review before production.</li>
     </ol>
-    <p>Discount codes, Shop Pay and abandoned checkout emails keep working as usual. The limits are listed in the approach page: no stock tracking per option, discounts apply to the whole line, and an option price change means re-running our variant script.</p>
+    <p>Discount codes, Shop Pay and abandoned checkout emails keep working as usual. The limits are listed in the approach page: no stock tracking per option, discounts apply to the whole line, and prices live in two places.</p>
+    <div class="callout"><strong>Price updates are done by your team.</strong> We set up the cap model products and variants <strong>once</strong>, from your current price list. After launch, your team updates prices yourselves, <strong>in two places: in the configurator and in Shopify</strong>. If a total in the configurator has no matching variant in Shopify, that build can't be added to the cart.
+      <ul>
+        <li><strong>Base price of a cap model:</strong> change it in the configurator, then change every variant of that product by the same amount in Shopify (a quick bulk edit).</li>
+        <li><strong>Price of an option:</strong> change it in the configurator, then update the variants of all 6 cap models so every new possible total has a matching variant. This is the hard one, with about 140 price levels per model, and easy to get wrong by hand.</li>
+        <li><strong>New vehicle model or option:</strong> add it in the configurator, then add the new product or price levels in Shopify.</li>
+      </ul>
+      To help, we hand over the spreadsheet we use to build the variants, and the store guide shows how to make each change. Later updates done by us are quoted separately (§7.3). For the long term, we recommend that W3D makes the configurator read prices from Shopify, so prices are kept in one place only.</div>
 
     <h3>3.2 What the 25h covers</h3>
     <ul>
       <li>Embedding the configurator in the PRO and PRO PLUS product pages, on desktop and mobile</li>
       <li>The custom Add to cart function on the Generate quote button, sending the build and its options to the Shopify cart</li>
-      <li>The hidden cap model products and their price variants, built from your price list, plus the script that regenerates them when prices change</li>
+      <li>The hidden cap model products and their price variants, built once from your current price list</li>
       <li>The automatic order check</li>
       <li>Testing that every build reaches the cart and checkout at the right total, and coordinating with W3D, your configurator developer</li>
     </ul>
@@ -359,10 +366,10 @@
           <tr><td>Checkout (§4.1–4.2): Shopify Payments guidance, test orders, PreProduct deposit setup and test</td><td class="num">3h</td></tr>
           <tr><td>Sales tax (§4.3): Shopify Tax for California only</td><td class="num">1h</td></tr>
           <tr><td>QA: pages on mobile and desktop, cart and checkout</td><td class="num">5h</td></tr>
-          <tr><td>Store operations guide and walkthrough: products and prices, orders, pre-orders and refunds</td><td class="num">3h</td></tr>
+          <tr><td>Store operations guide and walkthrough: products and prices (including configurator price updates), orders, pre-orders and refunds</td><td class="num">3h</td></tr>
           <tr><td>Design phase (§1.4): homepage and product page design for desktop and mobile, color and type system, up to 3 feedback rounds</td><td class="num">20h</td></tr>
           <tr class="total"><td><strong>Option 2 subtotal ($1,950)</strong></td><td class="num">65h</td></tr>
-          <tr><td>3D configurator add to cart (§3): configurator embedded in the product pages, custom Add to cart on the Generate quote button, hidden cap model products and price variants, price update script, automatic order check, tests and coordination with W3D</td><td class="num">25h</td></tr>
+          <tr><td>3D configurator add to cart (§3): configurator embedded in the product pages, custom Add to cart on the Generate quote button, hidden cap model products and price variants (one-time setup), automatic order check, tests and coordination with W3D</td><td class="num">25h</td></tr>
           <tr class="total"><td><strong>Total ($2,700)</strong></td><td class="num">90h</td></tr>
         </tbody>
       </table>
@@ -400,6 +407,7 @@
           <tr><td class="label-cell">Product import</td><td>Your product list has more variants or options than a standard setup covers (§2)</td><td>Quoted once we've reviewed the list</td></tr>
           <tr><td class="label-cell">Custom tax rules</td><td>California tax needs a formula beyond a percentage or fixed amount (§4.3)</td><td>Quoted once you describe the formula</td></tr>
           <tr><td class="label-cell">Exact homepage match</td><td>You send a design file and want the homepage to match it exactly (§1.3)</td><td>Quoted once we have the file. It can go up or down.</td></tr>
+          <tr><td class="label-cell">Price updates by us</td><td>You'd like us to update the configurator products in Shopify after a price change, instead of your team (§3.1)</td><td>Quoted per update</td></tr>
           <tr><td class="label-cell">Configurator changes</td><td>The configurator needs changes beyond the Generate quote button and embedding, such as reading prices from Shopify (§3)</td><td>Quoted once we agree on the change. Work done by W3D is billed by W3D.</td></tr>
         </tbody>
       </table>

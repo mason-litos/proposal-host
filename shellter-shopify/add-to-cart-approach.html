@@ -131,7 +131,7 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
     <ul class="list">
       <li><span class="chip con">Limit</span><span><b>No inventory tracking per option</b> (side box, drawer, lock).</span></li>
       <li><span class="chip con">Limit</span><span><b>Discounts apply to the whole line.</b> They cannot target a single option.</span></li>
-      <li><span class="chip con">Limit</span><span><b>Changing an option’s price means regenerating the variants.</b> A script handles this.</span></li>
+      <li><span class="chip con">Limit</span><span><b>Prices live in two places,</b> the configurator and Shopify. Your team updates both whenever a price changes.</span></li>
       <li><span class="chip con">Limit</span><span><b>Shipping weight is set per cap model.</b> Adding options does not change it.</span></li>
       <li><span class="chip con">Limit</span><span><b>Sold in USD only,</b> unless the configurator is changed to show converted prices.</span></li>
     </ul>
@@ -142,13 +142,15 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
 <section>
   <h2>When prices change</h2>
   <div class="tbl"><table>
-    <thead><tr><th>Change</th><th>What we do</th></tr></thead>
+    <thead><tr><th>Change</th><th>In the configurator</th><th>In Shopify</th></tr></thead>
     <tbody>
-      <tr><td>Base price of a cap model</td><td>Edit the variant prices of that product (a quick bulk edit)</td></tr>
-      <tr><td>Price of an option</td><td>Re-run the script for all 6 products</td></tr>
-      <tr><td>New vehicle model or new option</td><td>Re-run the script to add the new product or price levels</td></tr>
+      <tr><td>Base price of a cap model</td><td>Change the base price</td><td>Change the price of every variant of that product by the same amount (a quick bulk edit)</td></tr>
+      <tr><td>Price of an option</td><td>Change the option price</td><td>Update the variants of all 6 products so that every new possible total has a matching variant</td></tr>
+      <tr><td>New vehicle model or new option</td><td>Add the model or option</td><td>Add the new product, or the new price levels as variants</td></tr>
     </tbody>
   </table></div>
+  <p class="note">We set up all products and variants once, from price list v1. After launch, your team keeps the configurator and Shopify in sync. If a total in the configurator has no matching variant in Shopify, that build cannot be added to the cart. Our store guide shows how to make each change.</p>
+  <p class="note">A base price change is quick. An option price change is the hard one: it changes the possible totals of all 6 cap models, about 140 price levels each, and working them out by hand is easy to get wrong. To help, we hand over the spreadsheet we use to build the variants, so your team can recalculate the price levels from a new price list. For the long term, we recommend that W3D makes the configurator read prices from Shopify (see below), so prices are kept in one place only.</p>
 </section>
 
 <section class="ask">
@@ -158,7 +160,7 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
     <li>Allow the configurator to be embedded in a page of your store.</li>
     <li>Recommended: have the configurator read prices from Shopify instead of fixed prices inside the app.</li>
   </ol>
-  <p>We handle all of the work on the Shopify side.</p>
+  <p>We handle the Shopify side of the initial setup.</p>
 </section>
 
 <section>
