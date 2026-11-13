@@ -190,9 +190,9 @@
   </header>
 
   <div class="stat-row">
-    <div class="stat"><span class="n">40 issues</span><span class="label">1 Critical, 12 High, 16 Medium, 11 Low (§1)</span></div>
-    <div class="stat"><span class="n hero">$2,250</span><span class="extra">Recommended · 75h</span><span class="label">All four phases (§3)</span></div>
-    <div class="stat"><span class="n">$1,110</span><span class="extra">Minimum · 37h</span><span class="label">Phases 1–2: 11 of 13 Critical and High issues, checkout blocker included</span></div>
+    <div class="stat"><span class="n">38 issues</span><span class="label">1 Critical, 12 High, 14 Medium, 11 Low (§1)</span></div>
+    <div class="stat"><span class="n hero">$1,635</span><span class="extra">Recommended · 54.5h</span><span class="label">All three phases (§3)</span></div>
+    <div class="stat"><span class="n">$1,155</span><span class="extra">Minimum · 38.5h</span><span class="label">Phases 1–2: 12 of 13 Critical and High issues, checkout blocker included</span></div>
     <div class="stat"><span class="n">2 reds</span><span class="label">The only visible change: two slightly darker reds (§6)</span></div>
   </div>
 
@@ -206,10 +206,10 @@
         <colgroup><col style="width:9rem"><col><col style="width:6.5rem"><col style="width:4.6rem"><col style="width:4.2rem"><col style="width:4.8rem"><col style="width:4rem"><col style="width:4rem"></colgroup>
         <thead><tr><th>Store</th><th>Theme</th><th>Lighthouse</th><th>Critical</th><th>High</th><th>Medium</th><th>Low</th><th>Total</th></tr></thead>
         <tbody>
-          <tr><td class="label-cell">Cleaning Domain</td><td>Krank 1.2.0</td><td class="num">93.7</td><td class="num">0</td><td class="num">4</td><td class="num">6</td><td class="num">5</td><td class="num">15</td></tr>
+          <tr><td class="label-cell">Cleaning Domain</td><td>Krank 1.2.0</td><td class="num">93.7</td><td class="num">0</td><td class="num">4</td><td class="num">5</td><td class="num">5</td><td class="num">14</td></tr>
           <tr><td class="label-cell">Tidywarehouse</td><td>Impulse 8.1.0</td><td class="num">87.3</td><td class="num">1</td><td class="num">6</td><td class="num">4</td><td class="num">4</td><td class="num">15</td></tr>
-          <tr><td class="label-cell">Janilink</td><td>Athens 6.7.0</td><td class="num">95.5</td><td class="num">0</td><td class="num">2</td><td class="num">6</td><td class="num">2</td><td class="num">10</td></tr>
-          <tr class="total"><td>All three</td><td></td><td></td><td class="num">1</td><td class="num">12</td><td class="num">16</td><td class="num">11</td><td class="num">40</td></tr>
+          <tr><td class="label-cell">Janilink</td><td>Athens 6.7.0</td><td class="num">95.5</td><td class="num">0</td><td class="num">2</td><td class="num">5</td><td class="num">2</td><td class="num">9</td></tr>
+          <tr class="total"><td>All three</td><td></td><td></td><td class="num">1</td><td class="num">12</td><td class="num">14</td><td class="num">11</td><td class="num">38</td></tr>
         </tbody>
       </table>
     </div>
@@ -217,7 +217,7 @@
       <li><strong>The themes are not Shopify's own.</strong> All three stores run paid Theme Store themes (Krank, Impulse and Athens) with our edits. Shopify tests its checkout and its free Dawn theme for accessibility, not these themes, so most fixes are theme work.</li>
       <li><strong>One issue blocks a purchase</strong>: the Tidywarehouse cart drawer (TW-01).</li>
       <li><strong>Menus and popups cause the biggest keyboard problems.</strong> Getting past the dropdown menus takes 127 Tab presses on Tidywarehouse and 139 on Janilink. The Janilink popup covers the page while focus stays behind it.</li>
-      <li><strong>16 of the 40 issues need no code.</strong> They are fixed with theme settings or content. Another 5 are partly fixed by a setting, and 19 need theme code, mostly small changes.</li>
+      <li><strong>14 of the 38 issues need no code.</strong> They are fixed with theme settings or content. Another 5 are partly fixed by a setting, and 19 need theme code, mostly small changes.</li>
       <li><strong>A good score is not the same as compliant.</strong> Lighthouse scores of 87 to 96 miss the cart drawer, popup and menu problems. Those came from our keyboard tests.</li>
       <li><strong>Already working:</strong> a skip link, a visible focus outline, labelled size options, clear sale prices, and the cart drawers on Cleaning Domain and Janilink. No store uses an accessibility overlay app, and we recommend not adding one, because it does not change the theme code.</li>
     </ul>
@@ -228,7 +228,7 @@
       <li><strong>Pages on each store:</strong> homepage with menus, search and popups; two collections (Carpet Cleaning Chemicals, Automatic Scrubbers) with filters; two products (one with a size option, one on sale with a photo gallery); search for "mop"; cart drawer and cart page; the first checkout step (no order placed); contact, newsletter and sign-in.</li>
       <li><strong>Product content:</strong> 33 products on Cleaning Domain, 56 on Tidywarehouse and 31 on Janilink, checked for alt text and description markup.</li>
       <li><strong>Screen sizes:</strong> desktop 1366 × 900 and iPhone 390 × 844.</li>
-      <li><strong>Not covered yet:</strong> real screen readers (NVDA, VoiceOver), which Phase 4 adds; signed-in account pages; PDF files; every product; testing with shoppers who have disabilities.</li>
+      <li><strong>Not covered yet:</strong> real screen readers (NVDA, VoiceOver), which Phase 3 adds; signed-in account pages; PDF files; every product; testing with shoppers who have disabilities.</li>
     </ul>
 
     <h3>1.2 Who handles what</h3>
@@ -238,9 +238,10 @@
         <thead><tr><th>Category</th><th>What it covers</th><th>Issues</th></tr></thead>
         <tbody>
           <tr><td class="label-cell">Shopify built-in</td><td>Checkout, Shop Pay, customer sign-in and the Shopify Inbox chat widget. Shopify maintains this code; we report problems to Shopify Support.</td><td>2 (SH-01, SH-02)</td></tr>
-          <tr><td class="label-cell">Setting or content</td><td>Fixed in the theme editor or admin without code: colors, alt text, menu titles, slideshow and popup settings, links.</td><td>16, plus part of 5 more</td></tr>
+          <tr><td class="label-cell">Setting or content</td><td>Fixed in the theme editor or admin without code: colors, alt text, menu titles, slideshow and popup settings, links.</td><td>14, plus part of 5 more</td></tr>
           <tr><td class="label-cell">Custom development</td><td>Theme code: menus, mobile menu, cart drawer, popup, button names, page width, filters, status messages.</td><td>19, plus part of 5 more</td></tr>
           <tr><td class="label-cell">Third-party apps</td><td>Shopify Inbox chat (Tidywarehouse, Janilink) and Frequently Bought Together (Tidywarehouse). The Frequently Bought Together widget passed.</td><td>1 (JL-04)</td></tr>
+          <tr><td class="label-cell">Our SEO content app</td><td>Alt text on product photos. The app already fills it for every product photo that has none, so it is not part of this proposal.</td><td>–</td></tr>
         </tbody>
       </table>
     </div>
@@ -264,14 +265,13 @@
           <tr><td class="label-cell">CD-05</td><td>Departments and Solutions each have a menu item with no title, and the mobile menu ends with an empty button.</td><td>Medium<br>2.4.4, 4.1.2</td><td>Content<br>Content</td><td class="num">1</td></tr>
           <tr><td class="label-cell">CD-06</td><td>The cart button is announced as "Cart Drawer" but shows "0 Items", and hides a second link. "Get 20% Off" and mobile search are built the same way.</td><td>Medium<br>2.5.3, 4.1.2</td><td>Theme code<br>Custom dev</td><td class="num">2</td></tr>
           <tr><td class="label-cell">CD-07</td><td>At 320 px wide the cart icon is pushed off screen and every page scrolls sideways.</td><td>Medium<br>1.4.10</td><td>Theme CSS<br>Custom dev</td><td class="num">2</td></tr>
-          <tr><td class="label-cell">CD-08</td><td>Collection pages and Contact have no H1, and collection pages still show theme demo sections.</td><td>Medium<br>2.4.6</td><td>Template, content<br>Both</td><td class="num">3</td></tr>
+          <tr><td class="label-cell">CD-08</td><td>Collection pages and Contact have no H1, and collection pages still show theme demo sections.</td><td>Medium<br>2.4.6</td><td>Theme code, settings<br>Both</td><td class="num">2</td></tr>
           <tr><td class="label-cell">CD-09</td><td>Price slider handles are 3 px tall, and the "Filters" toggle does not say whether it is open.</td><td>Medium<br>2.5.8, 4.1.2</td><td>Theme code<br>Custom dev</td><td class="num">2</td></tr>
-          <tr><td class="label-cell">CD-10</td><td>Product photo alt text repeats the product title on every photo (54 of 54 sampled).</td><td>Medium<br>1.1.1</td><td>Content<br>SEO app</td><td class="num">3</td></tr>
           <tr><td class="label-cell">CD-11</td><td>The newsletter popup opens after 10 seconds, even over an open cart, and uses theme demo copy.</td><td>Low<br>Best practice</td><td>Settings, content<br>Setting</td><td class="num">1</td></tr>
-          <tr><td class="label-cell">CD-12</td><td>Product gallery arrows point to an element that does not exist.</td><td>Low<br>4.1.2</td><td>Theme code<br>Custom dev</td><td class="num">4</td></tr>
-          <tr><td class="label-cell">CD-13</td><td>Search suggestions do not close with Esc and do not respond to arrow keys.</td><td>Low<br>Best practice</td><td>Theme code<br>Custom dev</td><td class="num">4</td></tr>
+          <tr><td class="label-cell">CD-12</td><td>Product gallery arrows point to an element that does not exist.</td><td>Low<br>4.1.2</td><td>Theme code<br>Custom dev</td><td class="num">3</td></tr>
+          <tr><td class="label-cell">CD-13</td><td>Search suggestions do not close with Esc and do not respond to arrow keys.</td><td>Low<br>Best practice</td><td>Theme code<br>Custom dev</td><td class="num">3</td></tr>
           <tr><td class="label-cell">CD-14</td><td>The header phone number is a disabled link, so it cannot be tapped to call.</td><td>Low<br>Best practice</td><td>Theme settings<br>Setting</td><td class="num">1</td></tr>
-          <tr><td class="label-cell">CD-15</td><td>A description links to a manual and parts list on the old WordPress site (page not found). One description has an H1.</td><td>Low<br>2.4.4, 1.3.1</td><td>Content<br>SEO app</td><td class="num">3</td></tr>
+          <tr><td class="label-cell">CD-15</td><td>A description links to a manual and parts list on the old WordPress site (page not found). One description has an H1. Phase 1 fixes the H1; the old link is not included (§5).</td><td>Low<br>2.4.4, 1.3.1</td><td>Content<br>Content</td><td class="num">1</td></tr>
         </tbody>
       </table>
     </div>
@@ -289,7 +289,7 @@
     </div>
 
     <h3>2.2 Tidywarehouse</h3>
-    <p>Impulse 8.1.0. Lighthouse is 87.3, below the 90 Shopify asks of Theme Store themes, with the product page at 79 on desktop. The mobile menu works well. The cart drawer and desktop menus need code fixes, and most product photos have no alt text.</p>
+    <p>Impulse 8.1.0. Lighthouse is 87.3, below the 90 Shopify asks of Theme Store themes, with the product page at 79 on desktop. The mobile menu works well. The cart drawer and desktop menus need code fixes, and images in custom blocks have no alt text.</p>
     <div class="table-wrap">
       <table style="min-width:680px">
         <colgroup><col style="width:4.4rem"><col><col style="width:6.6rem"><col style="width:8.4rem"><col style="width:4.2rem"></colgroup>
@@ -300,16 +300,16 @@
           <tr><td class="label-cell">TW-03</td><td>The header and footer logo links have empty alt text, so screen readers say only "link" on every page.</td><td><strong>High</strong><br>1.1.1, 2.4.4</td><td>Content<br>Content</td><td class="num">1</td></tr>
           <tr><td class="label-cell">TW-04</td><td>The homepage slideshow changes every 5 seconds with no pause button, and links on hidden slides stay in the Tab order.</td><td><strong>High</strong><br>2.2.2, 4.1.2</td><td>Settings, code<br>Both</td><td class="num">1, 2</td></tr>
           <tr><td class="label-cell">TW-05</td><td>The "Sale" badge and "Save $250.00" text are 3.85:1 on every product card that is on sale.</td><td><strong>High</strong><br>1.4.3</td><td>Theme settings<br>Setting</td><td class="num">1</td></tr>
-          <tr><td class="label-cell">TW-06</td><td>97 of 100 sampled product photos have no alt text. Images in custom blocks (manual icon, safety sheet image, contact icons) have none either.</td><td><strong>High</strong><br>1.1.1</td><td>Content, custom blocks<br>Both</td><td class="num">2, 3</td></tr>
-          <tr><td class="label-cell">TW-07</td><td>18 of 56 sampled descriptions link to the old WordPress site. The /shop/ links redirect to janilink.com and the PDF links are dead.</td><td><strong>High</strong><br>2.4.4, 1.3.1</td><td>Content<br>SEO app</td><td class="num">3</td></tr>
+          <tr><td class="label-cell">TW-06</td><td>Images in custom blocks (manual icon, safety sheet image, contact icons) have no alt text. Product photo alt text is filled by our SEO content app (§1.2).</td><td><strong>High</strong><br>1.1.1</td><td>Theme code, content<br>Both</td><td class="num">2</td></tr>
+          <tr><td class="label-cell">TW-07</td><td>18 of 56 sampled descriptions link to the old WordPress site. The /shop/ links redirect to janilink.com and the PDF links are dead.</td><td><strong>High</strong><br>2.4.4, 1.3.1</td><td>Content<br>Not included (§5)</td><td class="num">–</td></tr>
           <tr><td class="label-cell">TW-08</td><td>Product pages scroll sideways at 320 px because the product tabs are 405 px wide.</td><td>Medium<br>1.4.10</td><td>Theme CSS<br>Custom dev</td><td class="num">2</td></tr>
           <tr><td class="label-cell">TW-09</td><td>Choosing a size changes the price on screen, but screen readers hear nothing.</td><td>Medium<br>4.1.3</td><td>Theme code<br>Custom dev</td><td class="num">2</td></tr>
           <tr><td class="label-cell">TW-10</td><td>The image zoom button on product photos has no name.</td><td>Medium<br>4.1.2</td><td>Theme code<br>Custom dev</td><td class="num">2</td></tr>
-          <tr><td class="label-cell">TW-11</td><td>The price filter slider handles on collection pages have no name.</td><td>Medium<br>4.1.2</td><td>Theme code<br>Custom dev</td><td class="num">4</td></tr>
-          <tr><td class="label-cell">TW-12</td><td>Search suggestions say "collapsed" while open, are not a list, and the result count is not announced.</td><td>Low<br>4.1.2, 4.1.3</td><td>Theme code<br>Custom dev</td><td class="num">4</td></tr>
-          <tr><td class="label-cell">TW-13</td><td>The footer newsletter field uses placeholder text as its only label and has no email autofill.</td><td>Low<br>3.3.2, 1.3.5</td><td>Theme code<br>Custom dev</td><td class="num">4</td></tr>
+          <tr><td class="label-cell">TW-11</td><td>The price filter slider handles on collection pages have no name.</td><td>Medium<br>4.1.2</td><td>Theme code<br>Custom dev</td><td class="num">3</td></tr>
+          <tr><td class="label-cell">TW-12</td><td>Search suggestions say "collapsed" while open, are not a list, and the result count is not announced.</td><td>Low<br>4.1.2, 4.1.3</td><td>Theme code<br>Custom dev</td><td class="num">3</td></tr>
+          <tr><td class="label-cell">TW-13</td><td>The footer newsletter field uses placeholder text as its only label and has no email autofill.</td><td>Low<br>3.3.2, 1.3.5</td><td>Theme code<br>Custom dev</td><td class="num">3</td></tr>
           <tr><td class="label-cell">TW-14</td><td>The Contact page has no H1 and no contact form.</td><td>Low<br>Best practice</td><td>Content<br>Content</td><td class="num">1</td></tr>
-          <tr><td class="label-cell">TW-15</td><td>The cart quantity box is 20 px wide, under the 24 px minimum.</td><td>Low<br>2.5.8</td><td>Theme code<br>Custom dev</td><td class="num">4</td></tr>
+          <tr><td class="label-cell">TW-15</td><td>The cart quantity box is 20 px wide, under the 24 px minimum.</td><td>Low<br>2.5.8</td><td>Theme code<br>Custom dev</td><td class="num">3</td></tr>
         </tbody>
       </table>
     </div>
@@ -337,10 +337,9 @@
           <tr><td class="label-cell">JL-04</td><td>On phones the Chat button covers the Account icon and part of the "Compare" switch.</td><td>Medium<br>2.5.8</td><td>Shopify Inbox, theme<br>Setting</td><td class="num">1</td></tr>
           <tr><td class="label-cell">JL-05</td><td>The "Shop now" button in "Cordless tool kits" has no link. The section is theme demo text.</td><td>Medium<br>2.4.4</td><td>Content<br>Content</td><td class="num">1</td></tr>
           <tr><td class="label-cell">JL-06</td><td>The photo on the Contact page has no alt attribute.</td><td>Medium<br>1.1.1</td><td>Content<br>Content</td><td class="num">1</td></tr>
-          <tr><td class="label-cell">JL-07</td><td>3 of 31 sampled descriptions link to old WordPress PDFs that no longer exist. One description has an H1.</td><td>Medium<br>2.4.4, 1.3.1</td><td>Content<br>SEO app</td><td class="num">3</td></tr>
-          <tr><td class="label-cell">JL-08</td><td>Product photo alt text mostly repeats the product title (34 of 54 sampled), and 4 images are empty.</td><td>Medium<br>1.1.1</td><td>Content<br>SEO app</td><td class="num">3</td></tr>
-          <tr><td class="label-cell">JL-09</td><td>The mobile menu does not close with Esc.</td><td>Low<br>Best practice</td><td>Theme code<br>Custom dev</td><td class="num">4</td></tr>
-          <tr><td class="label-cell">JL-10</td><td>The phone field in the contact form has no autofill hint.</td><td>Low<br>1.3.5</td><td>Theme code<br>Custom dev</td><td class="num">4</td></tr>
+          <tr><td class="label-cell">JL-07</td><td>3 of 31 sampled descriptions link to old WordPress PDFs that no longer exist. One description has an H1. Phase 1 fixes the H1; the old links are not included (§5).</td><td>Medium<br>2.4.4, 1.3.1</td><td>Content<br>Content</td><td class="num">1</td></tr>
+          <tr><td class="label-cell">JL-09</td><td>The mobile menu does not close with Esc.</td><td>Low<br>Best practice</td><td>Theme code<br>Custom dev</td><td class="num">3</td></tr>
+          <tr><td class="label-cell">JL-10</td><td>The phone field in the contact form has no autofill hint.</td><td>Low<br>1.3.5</td><td>Theme code<br>Custom dev</td><td class="num">3</td></tr>
         </tbody>
       </table>
     </div>
@@ -375,23 +374,22 @@
 
   <section class="section">
     <div class="section-head"><span class="section-num">3</span><h2>What we recommend</h2></div>
-    <p>We recommend all four phases as one project. It covers every issue in §2. If you prefer to start smaller, approve Phases 1 and 2 first.</p>
+    <p>We recommend all three phases as one project. It covers every issue in §2 except the old WordPress links in product descriptions (TW-07, and part of CD-15 and JL-07), which are not included (§5). If you prefer to start smaller, approve Phases 1 and 2 first.</p>
     <div class="table-wrap">
       <table>
         <colgroup><col style="width:9rem"><col><col style="width:5.5rem"><col style="width:8.5rem"></colgroup>
         <thead><tr><th>Option</th><th>What it fixes</th><th>Hours</th><th>Price</th></tr></thead>
         <tbody>
-          <tr class="total"><td>Recommended<br>Phases 1–4</td><td>All 40 issues, then a retest and a screen reader check</td><td class="num">75h</td><td class="num">$2,250<br>at $30/hr</td></tr>
-          <tr><td class="label-cell">Phases 1–3</td><td>All issues except the eight in Phase 4 (seven Low, one Medium), with no retest</td><td class="num">59h</td><td class="num">$1,770<br>at $30/hr</td></tr>
-          <tr><td class="label-cell">Minimum<br>Phases 1–2</td><td>11 of the 13 Critical and High issues, including the cart drawer blocker on Tidywarehouse</td><td class="num">37h</td><td class="num">$1,110<br>at $30/hr</td></tr>
+          <tr class="total"><td>Recommended<br>Phases 1–3</td><td>Every issue except the old WordPress links, then a retest and a screen reader check</td><td class="num">54.5h</td><td class="num">$1,635<br>at $30/hr</td></tr>
+          <tr><td class="label-cell">Minimum<br>Phases 1–2</td><td>12 of the 13 Critical and High issues, including the cart drawer blocker on Tidywarehouse</td><td class="num">38.5h</td><td class="num">$1,155<br>at $30/hr</td></tr>
         </tbody>
       </table>
     </div>
-    <p>After Phases 1 and 2, two High issues are left: product photo alt text and old links in product descriptions (TW-06, TW-07). They affect thousands of products, so Phase 3 fixes them through the SEO app instead of by hand.</p>
+    <p>Phases 1 and 2 fix every Critical and High issue in this proposal. The one High issue they leave, old links in product descriptions (TW-07), is not included (§5). Phase 3 covers the eight remaining issues (seven Low, one Medium), the retest and the screen reader check.</p>
   </section>
 
   <section class="section">
-    <div class="section-head"><span class="section-num">4</span><h2>The four phases</h2></div>
+    <div class="section-head"><span class="section-num">4</span><h2>The three phases</h2></div>
 
     <h3>4.1 Phase 1: Settings and content, no code (8h)</h3>
     <div class="table-wrap">
@@ -409,12 +407,13 @@
           <tr><td class="label-cell">JL-04</td><td>Janilink</td><td>Move the Chat button off the Account icon on phones</td></tr>
           <tr><td class="label-cell">CD-14</td><td>Cleaning Domain</td><td>Make the header phone number a tap-to-call link</td></tr>
           <tr><td class="label-cell">TW-14</td><td>Tidywarehouse</td><td>An H1 and a contact form on the Contact page</td></tr>
+          <tr><td class="label-cell">CD-15, JL-07</td><td>Cleaning Domain, Janilink</td><td>The H1 inside one product description on each store becomes an H2, so the page keeps one H1: the product title</td></tr>
           <tr><td class="label-cell">Demo text</td><td>Cleaning Domain, Janilink</td><td>Remove leftover theme demo text ("Welcome to KRANK", power-tool search suggestions, "Cordless tool kits")</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3>4.2 Phase 2: Code fixes on the buying path and menus (29h)</h3>
+    <h3>4.2 Phase 2: Code fixes on the buying path and menus (30.5h)</h3>
     <div class="table-wrap">
       <table>
         <colgroup><col style="width:8.5rem"><col style="width:9rem"><col></colgroup>
@@ -430,26 +429,12 @@
           <tr><td class="label-cell">TW-04</td><td>Tidywarehouse</td><td>Links on hidden slides leave the Tab order</td></tr>
           <tr><td class="label-cell">CD-04, TW-06</td><td>Cleaning Domain, Tidywarehouse</td><td>The hero image outputs its alt text; custom blocks (manual icon, safety sheet image, contact icons) get an alt field</td></tr>
           <tr><td class="label-cell">CD-09</td><td>Cleaning Domain</td><td>Price filter handles at least 24 px; the "Filters" toggle says whether it is open</td></tr>
+          <tr><td class="label-cell">CD-08</td><td>Cleaning Domain</td><td>Collection pages and Contact show the page title as their one H1; the collection template loses its theme demo sections</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3>4.3 Phase 3: Content fixes through the SEO app (22h)</h3>
-    <div class="table-wrap">
-      <table>
-        <colgroup><col style="width:8.5rem"><col style="width:9rem"><col></colgroup>
-        <thead><tr><th>Issue</th><th>Store</th><th>What we do</th></tr></thead>
-        <tbody>
-          <tr><td class="label-cell">CD-10, TW-06, JL-08</td><td>All three</td><td>The app writes alt text for each product photo: what that photo shows, in under about 125 characters</td></tr>
-          <tr><td class="label-cell">TW-07, JL-07, CD-15</td><td>All three</td><td>Description rules in the app: start at H2, real lists, tables with header cells, no inline colors, link text that says where it goes. Checked before saving.</td></tr>
-          <tr><td class="label-cell">TW-07, JL-07, CD-15</td><td>All three</td><td>The app finds links to the old WordPress site and replaces them. Safety Data Sheets and manuals go to Shopify Files, linked as "Safety Data Sheet (PDF)".</td></tr>
-          <tr><td class="label-cell">CD-08</td><td>All three</td><td>Collection pages get an H1 and a short intro that match the new collection names. The Cleaning Domain template also loses its demo sections.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="callout"><strong>Overlap with the SEO project:</strong> these four app functions also count as SEO work, as do the menu fixes in Phase 2 and the demo text removal in Phase 1. If any of the four is already in the SEO app features we are finalizing with you, its hours come off this phase.</div>
-
-    <h3>4.4 Phase 4: Remaining items, retest and screen reader check (16h)</h3>
+    <h3>4.3 Phase 3: Remaining items, retest and screen reader check (16h)</h3>
     <div class="table-wrap">
       <table>
         <colgroup><col style="width:8.5rem"><col style="width:9rem"><col></colgroup>
@@ -475,15 +460,14 @@
         <thead><tr><th>Phase</th><th>Cleaning Domain</th><th>Tidy&shy;warehouse</th><th>Janilink</th><th>All three</th><th>Total</th></tr></thead>
         <tbody>
           <tr><td>1. Settings and content (§4.1)</td><td class="num">3.5h</td><td class="num">2.5h</td><td class="num">2h</td><td class="num">–</td><td class="num">8h</td></tr>
-          <tr><td>2. Code fixes (§4.2)</td><td class="num">9.5h</td><td class="num">13h</td><td class="num">6.5h</td><td class="num">–</td><td class="num">29h</td></tr>
-          <tr><td>3. Content through the SEO app (§4.3)</td><td class="num">1.5h</td><td class="num">–</td><td class="num">–</td><td class="num">20.5h</td><td class="num">22h</td></tr>
-          <tr><td>4. Remaining items and retest (§4.4)</td><td class="num">5h</td><td class="num">5h</td><td class="num">3.5h</td><td class="num">2.5h</td><td class="num">16h</td></tr>
-          <tr class="total"><td><strong>Total</strong></td><td class="num">19.5h</td><td class="num">20.5h</td><td class="num">12h</td><td class="num">23h</td><td class="num">75h</td></tr>
+          <tr><td>2. Code fixes (§4.2)</td><td class="num">11h</td><td class="num">13h</td><td class="num">6.5h</td><td class="num">–</td><td class="num">30.5h</td></tr>
+          <tr><td>3. Remaining items and retest (§4.3)</td><td class="num">5h</td><td class="num">5h</td><td class="num">3.5h</td><td class="num">2.5h</td><td class="num">16h</td></tr>
+          <tr class="total"><td><strong>Total</strong></td><td class="num">19.5h</td><td class="num">20.5h</td><td class="num">12h</td><td class="num">2.5h</td><td class="num">54.5h</td></tr>
         </tbody>
       </table>
     </div>
-    <p>Each store runs a different theme (Krank, Impulse and Athens), so code fixes are built separately for each one. The SEO app work is done once and run on all three stores.</p>
-    <p style="font-size:0.86rem;color:var(--ink-muted);"><strong>Rate basis:</strong> 75h falls in the 20–100h bracket, which is $30/hr on our standard rate card. The rate follows the total hours you approve.</p>
+    <p>Each store runs a different theme (Krank, Impulse and Athens), so code fixes are built separately for each one.</p>
+    <p style="font-size:0.86rem;color:var(--ink-muted);"><strong>Rate basis:</strong> 54.5h falls in the 20–100h bracket, which is $30/hr on our standard rate card. The rate follows the total hours you approve.</p>
 
     <div class="table-wrap">
       <table>
@@ -504,8 +488,8 @@
         <thead><tr><th>Item</th><th>Status</th></tr></thead>
         <tbody>
           <tr><td>Google Shopping listings on Cleaning Domain</td><td>Separate reply</td></tr>
-          <tr><td>Fixes for new issues found in the Phase 4 screen reader pass</td><td>Quoted after the pass</td></tr>
-          <tr><td>The Safety Data Sheet and manual files</td><td>Supplied by you (§6)</td></tr>
+          <tr><td>Fixes for new issues found in the Phase 3 screen reader pass</td><td>Quoted after the pass</td></tr>
+          <tr><td>Replacing old WordPress links in product descriptions (TW-07, CD-15, JL-07)</td><td>Not in this proposal</td></tr>
           <tr><td>Shopify checkout and sign-in code (SH-01, SH-02)</td><td>Maintained by Shopify</td></tr>
           <tr><td>Signed-in account pages, PDF files, testing with shoppers who have disabilities</td><td>Quoted on request</td></tr>
           <tr><td>A legal opinion or certificate of ADA compliance</td><td>Outside our services</td></tr>
@@ -516,8 +500,8 @@
 
     <div class="rollup">
       <div class="sub">Rate: $30/hr</div>
-      <div class="big">$2,250</div>
-      <div class="sub">75h across four phases. Phases 1–2 only: 37h, $1,110 at $30/hr. Excludes the items above.</div>
+      <div class="big">$1,635</div>
+      <div class="sub">54.5h across three phases. Phases 1–2 only: 38.5h, $1,155 at $30/hr. Excludes the items above.</div>
     </div>
   </section>
 
@@ -531,8 +515,6 @@
           <tr><td class="num">1</td><td>Do you want to keep the newsletter popups on Cleaning Domain and Janilink?</td><td>If the Janilink popup goes, Phase 2 drops 2.5h.</td></tr>
           <tr><td class="num">2</td><td>Are the two slightly darker reds (CD-03, TW-05) acceptable?</td><td>They are the only visible change. Without them, white text on the current reds stays below the 4.5:1 minimum.</td></tr>
           <tr><td class="num">3</td><td>Which store should we start with?</td><td>It sets the order of work. Hours stay the same, because each store has its own theme.</td></tr>
-          <tr><td class="num">4</td><td>Which features are going into the SEO app?</td><td>Any overlap with Phase 3 comes off its 20.5h.</td></tr>
-          <tr><td class="num">5</td><td>Do you have the Safety Data Sheets and manuals as files?</td><td>The old links point to files that are no longer online. Phase 3 needs the files to link them again.</td></tr>
         </tbody>
       </table>
     </div>
@@ -544,7 +526,7 @@
       <li>We go through this document with you on a call.</li>
       <li>You confirm which phases to approve and answer §6.</li>
       <li>We make theme changes on an unpublished copy of each store's theme. You preview each store before we publish, and nothing changes on the live stores until you approve.</li>
-      <li>After Phase 4 you receive an updated report with before-and-after results.</li>
+      <li>After Phase 3 you receive an updated report with before-and-after results.</li>
     </ol>
   </section>
 
